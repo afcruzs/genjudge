@@ -1,0 +1,11 @@
+package unal.edu.gpj
+
+class Contestant {
+	
+	String name
+	User secUser
+	
+
+    static constraints = {
+    }
+}

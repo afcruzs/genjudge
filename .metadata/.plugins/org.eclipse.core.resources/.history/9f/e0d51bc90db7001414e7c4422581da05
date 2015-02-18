@@ -1,0 +1,10 @@
+package unal.edu.gpj
+
+class Contestant {
+	
+	String name
+	
+
+    static constraints = {
+    }
+}
