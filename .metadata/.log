@@ -1788,3 +1788,48 @@ HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launc
 HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
 	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
 	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@1b0c366b),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@1b0c366b)),sourcePriority=16640)
+!SESSION 2015-02-18 23:03:05.667 -----------------------------------------------
+eclipse.buildId=3.5.0.201404011851-RELEASE-e38
+java.version=1.7.0_51
+java.vendor=Oracle Corporation
+BootLoader constants: OS=win32, ARCH=x86_64, WS=win32, NL=es_CO
+Framework arguments:  -product org.springsource.ggts.ide
+Command-line arguments:  -os win32 -ws win32 -arch x86_64 -product org.springsource.ggts.ide
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-02-18 23:03:38.126
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-02-18 23:03:38.126
+!MESSAGE Conflict for 'AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action':
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.RelaunchProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@84fc04d),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@84fc04d)),sourcePriority=16640)
+HandlerActivation(commandId=AUTOGEN:::org.springsource.ide.eclipse.commons.launch.actionSet/org.springsource.ide.eclipse.commons.launch.relaunch.action,
+	handler=ActionDelegateHandlerProxy(null,org.springsource.ide.eclipse.commons.ui.launch.StopProcessPullDownToolbarDelegate),
+	expression=AndExpression(ActionSetExpression(org.springsource.ide.eclipse.commons.launch.actionSet,org.eclipse.ui.internal.WorkbenchWindow@84fc04d),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@84fc04d)),sourcePriority=16640)
+
+!ENTRY com.vectrace.MercurialEclipse 1 0 2015-02-18 23:21:57.346
+!MESSAGE checking encoding (cp1252)...
+checking Python lib (C:\springsource\ggts-3.4.0.RELEASE\plugins\com.intland.hgbinary.win32_2.3.2\os\win32\library.zip)...
+checking installed modules (C:\springsource\ggts-3.4.0.RELEASE\plugins\com.intland.hgbinary.win32_2.3.2\os\win32\library.zip\mercurial)...
+checking templates (C:\springsource\ggts-3.4.0.RELEASE\plugins\com.intland.hgbinary.win32_2.3.2\os\win32\templates)...
+checking commit editor...
+checking username...
+no problems detected
+
+!ENTRY org.eclipse.egit.ui 2 0 2015-02-18 23:21:58.455
+!MESSAGE Warning: The environment variable HOME is not set. The following directory will be used to store the Git
+user global configuration and to define the default location to store repositories: 'C:\Users\Felipe'. If this is
+not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
+EGit might behave differently since they see different configuration options.
+This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+
+!ENTRY org.eclipse.ui.workbench 2 0 2015-02-18 23:35:17.726
+!MESSAGE A handler conflict occurred.  This may disable some commands.
+!SUBENTRY 1 org.eclipse.ui.workbench 2 0 2015-02-18 23:35:17.726
+!MESSAGE Conflict for 'org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu':
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu,
+	handler=org.eclipse.jdt.internal.ui.actions.JDTQuickMenuCreator$1@50d63fc7,
+	expression=AndExpression(ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@6cf8a1b),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@84fc04d)),sourcePriority=1064960)
+HandlerActivation(commandId=org.eclipse.jdt.ui.edit.text.java.refactor.quickMenu,
+	handler=org.eclipse.jdt.internal.ui.actions.JDTQuickMenuCreator$1@21f54b47,
+	expression=AndExpression(ActivePartExpression(org.eclipse.ui.navigator.resources.ProjectExplorer@6cf8a1b),WorkbenchWindowExpression(org.eclipse.ui.internal.WorkbenchWindow@84fc04d)),sourcePriority=1064960)

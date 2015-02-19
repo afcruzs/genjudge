@@ -1,0 +1,10 @@
+package unal.edu.gpj
+
+class InputOutput {
+	
+	byte[] inputFile
+	byte[] outputFile
+
+    static constraints = {
+    }
+}

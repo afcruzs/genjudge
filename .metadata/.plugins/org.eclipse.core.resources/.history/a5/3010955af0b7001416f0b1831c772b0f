@@ -1,0 +1,9 @@
+package unal.edu.gpj
+
+class Problem {
+	
+	String name
+
+    static constraints = {
+    }
+}

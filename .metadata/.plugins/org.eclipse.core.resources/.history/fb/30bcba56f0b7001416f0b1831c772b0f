@@ -1,0 +1,10 @@
+package unal.edu.gpj
+
+class Problem {
+	
+	String name
+	byte file[]
+
+    static constraints = {
+    }
+}

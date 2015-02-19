@@ -5,7 +5,155 @@
   <link rel="self" href="https://spring.io/blog.atom" />
   <id>http://spring.io/blog.atom</id>
   <icon>https://spring.io/favicon.ico</icon>
-  <updated>2015-02-13T15:53:00Z</updated>
+  <updated>2015-02-18T15:53:00Z</updated>
+  <entry>
+    <title>Reactor 2.0.0.RC1 with native Reactive Streams support now available!</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/02/18/reactor-2-0-0-rc1-with-native-reactive-streams-support-now-available" />
+    <category term="releases" label="Releases" />
+    <author>
+      <name>Jon Brisbin</name>
+    </author>
+    <id>tag:spring.io,2015-02-16:1977</id>
+    <updated>2015-02-18T15:53:00Z</updated>
+    <content type="html">&lt;p&gt;The Reactor team is happy to announce the release of 2.0.0.RC1, which is now available in &lt;a href="http://repo.spring.io/libs-milestone/io/projectreactor/"&gt;the spring.io Maven repository&lt;/a&gt; as well as &lt;a href="http://search.maven.org/#search%7Cga%7C1%7Cio.projectreactor"&gt;Maven central&lt;/a&gt;. Version 2.0 is an &lt;code&gt;#uberupdate&lt;/code&gt; from Reactor version 1.1 and contains several new components as well as complete rewrites of important classes like &lt;code&gt;Stream&lt;/code&gt;, which now implements &lt;a href="http://github.com/reactive-streams/reactive-streams"&gt;the Reactive Streams standard&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;Please note that the Maven coordinates for Reactor 2.0 have changed from those for Reactor 1.x. The new coordinates all fall under the group ID &lt;code&gt;io.projectreactor&lt;/code&gt; rather than the previous &lt;code&gt;org.projectreactor&lt;/code&gt;. A sample dependencies block for a Gradle project might look like this:&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint groovy"&gt;ext {&#xD;
+  reactorVersion = &amp;#39;2.0.0.RC1&amp;#39;&#xD;
+}&#xD;
+&#xD;
+repositories {&#xD;
+  maven { url &amp;#39;http://repo.spring.io/libs-milestone&amp;#39; }&#xD;
+  mavenCentral()&#xD;
+}&#xD;
+&#xD;
+compile &amp;quot;io.projectreactor:reactor-core:$reactorVersion&amp;quot;,&#xD;
+    &amp;quot;io.projectreactor:reactor-net:$reactorVersion&amp;quot;,&#xD;
+    &amp;quot;io.projectreactor.spring:reactor-spring-context:$reactorVersion&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;&lt;h3&gt;&lt;a href="#what-is-reactor" class="anchor" name="what-is-reactor"&gt;&lt;/a&gt;What is Reactor?&lt;/h3&gt;&lt;p&gt;If you&amp;rsquo;re a complete newbie to Reactor, you might want to first jump over to the spiffy new website at &lt;a href="http://projectreactor.io"&gt;http://projectreactor.io&lt;/a&gt; and get acquainted with it before some of this will make sense.&lt;/p&gt;&lt;h3&gt;&lt;a href="#changelog-tl-dr" class="anchor" name="changelog-tl-dr"&gt;&lt;/a&gt;Changelog TL;DR&lt;/h3&gt;&lt;p&gt;Along with &lt;a href="https://spring.io/blog/2014/10/21/reactor-2-0-0-m1-released-with-reactive-streams-integration"&gt;the changes announced in the 2.0.0.M1 release&lt;/a&gt;, here’s a brief list of important changes over version 1.1:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;code&gt;Stream&lt;/code&gt; has been rewritten to implement the Reactive Streams standard, is 5-10x faster, and has much less overhead than the previous version.&lt;/li&gt;
+  &lt;li&gt;Upgrading from Reactor 1.x code is not hard, with just a few changes to existing code being required to accommodate the new signatures of &lt;code&gt;Stream&lt;/code&gt; and the renaming of &lt;code&gt;Reactor&lt;/code&gt; to &lt;code&gt;EventBus&lt;/code&gt;. Documentation around this transition is ongoing.&lt;/li&gt;
+  &lt;li&gt;Reactor’s &lt;code&gt;Stream&lt;/code&gt; API derives from &lt;a href="https://msdn.microsoft.com/en-gb/data/gg577609.aspx"&gt;Reactive Extensions&lt;/a&gt; and mirrors many of its naming conventions. By leveraging a common vocabulary and behavior, it’s possible to easily translate Rx.NET and RxJava examples to Reactor.&lt;/li&gt;
+  &lt;li&gt;Reactor’s API has been harmonized around static helper methods and factories to make embedding as easy as possible.&lt;/li&gt;
+  &lt;li&gt;TCP support is totally jacked: Reactive Streams backpressure, HTTP server and client, &lt;code&gt;Stream&lt;/code&gt; integration, DSL helper methods.&lt;/li&gt;
+  &lt;li&gt;&lt;a href="http://projectreactor.io/"&gt;A new website&lt;/a&gt; with the beginnings of a proper reference manual, more samples, and more javadoc.&lt;/li&gt;
+  &lt;li&gt;Community contributions from more than just core project committers.&lt;/li&gt;
+&lt;/ul&gt;&lt;h3&gt;&lt;a href="#reactive-streams-is-totally-boss" class="anchor" name="reactive-streams-is-totally-boss"&gt;&lt;/a&gt;Reactive Streams is totally Boss&lt;/h3&gt;&lt;p&gt;If we had to limit ourselves to talking about just one change, then the native and foundational support for Reactive Streams would be it. It’s hard to overstate just how fundamental Reactive Streams has become to Reactor. Stream processing is the &lt;a href="https://typesafe.com/company/news"&gt;new&lt;/a&gt; &lt;a href="https://twitter.com/search?q=stream%20processing"&gt;black&lt;/a&gt; and Reactor has embraced that from the beginning of the project. The addition of Reactive Streams and its propagation of backpressure support, however, makes processing large volumes of data in real or near-real time much more accessible to your cloud applications. Now patterns such as &lt;code&gt;stop-read&lt;/code&gt; under load, &lt;code&gt;batch flush&lt;/code&gt; or &lt;code&gt;adaptive batch&lt;/code&gt; are available out of the box.&lt;/p&gt;&lt;p&gt;Each step in a Reactor &lt;code&gt;Stream&lt;/code&gt; is a Reactive Streams component that correctly propagates demand and backpressure based on the rate of processing under the current resource constraints. Using Reactive Streams, Reactor 2.0 makes it possible to create a stream of processing that adjusts its resource usage automatically. You can influence the rate at which new items are pulled into the system because of the way Reactive Streams backpressure is communicated upstream. That means a slow downstream component can push back all the way to the source to slow down the ingest rate if current processing is using all available resources.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;Pool&amp;lt;Connection&amp;gt; pool;&#xD;
+Stream&amp;lt;Message&amp;gt; input;&#xD;
+&#xD;
+input.capacity(1)&#xD;
+     .batchConsume(msg -&amp;gt; {&#xD;
+       pool.getConnection().merge(msg);&#xD;
+     }, requestMore -&amp;gt; Math.max(pool.getSize() - pool.getActive(), 1));
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;In the snippet above we’re adapting the number of items to process based on the number of available connections in the pool. The &lt;code&gt;Consumer&lt;/code&gt; passed as the first parameter to the &lt;code&gt;batchConsume&lt;/code&gt; method will be invoked governed by the &lt;code&gt;requestMore&lt;/code&gt; value returned from the &lt;code&gt;Function&lt;/code&gt; passed as the second parameter. In this case we’re going to pre-fetch a number of messages equal to the number of free connections in the pool, or just a single message if all connections are active (in that case we’ll rely on backpressure from the connection pool).&lt;/p&gt;&lt;p&gt;If we wanted to make sure our stream was not a resource hog, we could also change the capacity algorithm to return a number less than the number of available connections, which would leave some connections available to other components in our application.&lt;/p&gt;&lt;h3&gt;&lt;a href="#reactor-is-now-android-friendly" class="anchor" name="reactor-is-now-android-friendly"&gt;&lt;/a&gt;Reactor is now Android-friendly&lt;/h3&gt;&lt;p&gt;Starting with Reactor 2.0.0.RC1, it’s possible to include Reactor in your Android application by simply excluding the &lt;code&gt;gs-collections&lt;/code&gt; library which would otherwise force you to jump through some hoops due to it’s size. We’ve implemented a &lt;code&gt;SimpleCachingRegistry&lt;/code&gt; for the &lt;code&gt;EventBus&lt;/code&gt; that doesn’t use &lt;code&gt;gs-collections&lt;/code&gt;. Future improvements could include a dedicated UI event loop &lt;code&gt;Dispatcher&lt;/code&gt; to make sure your event handlers are run on the correct thread. &lt;/p&gt;&lt;p&gt;We’re very interested to see how Reactor can facilitate reactive applications on Android devices and how that ties to Reactor’s extremely high volume, low latency capabilities on the server side. Please let us know if you’re using Reactor on Android and if there are things we can do to make that experience better.&lt;/p&gt;&lt;h3&gt;&lt;a href="#http-and-better-tcp-and-zeromq-support" class="anchor" name="http-and-better-tcp-and-zeromq-support"&gt;&lt;/a&gt;HTTP and Better TCP and ZeroMQ support&lt;/h3&gt;&lt;p&gt;RC1 introduces new support for HTTP based on Reactor’s use of Netty 4. It’s not comprehensive yet, but it provides a few helper methods and some useful abstractions for building (and accessing) non-blocking REST-based micro and nanoservices. I wouldn&amp;rsquo;t be trying to build production services with it yet, as there&amp;rsquo;s still some refining that needs to happen before GA. You can embed a microservice using Reactor without resorting to the Netty API directly. &lt;/p&gt;&lt;p&gt;The following creates a Netty-based embedded HTTP server with path parameters that dispatches tasks onto the shared &lt;code&gt;RingBufferDispatcher&lt;/code&gt;.&lt;/p&gt;
+&lt;pre&gt;&lt;code class="prettyprint java"&gt;HttpServer&amp;lt;String, String&amp;gt; server = NetStreams.httpServer(&#xD;
+  spec -&amp;gt; spec.listen(3000)&#xD;
+              .codec(StandardCodecs.STRING_CODEC)&#xD;
+              .dispatcher(Environment.sharedDispatcher())&#xD;
+);&#xD;
+&#xD;
+server.get(&amp;quot;/echo/{greeting}&amp;quot;, ch -&amp;gt; {&#xD;
+  String greeting = ch.param(&amp;quot;greeting&amp;quot;) + &amp;quot; World!&amp;quot;;&#xD;
+&#xD;
+  ch.transfer(Transfer.NON_CHUNKED)&#xD;
+    .responseHeader(&amp;quot;Content-Length&amp;quot;, &amp;quot;&amp;quot; + greeting.length())&#xD;
+    .log(&amp;quot;server&amp;quot;);&#xD;
+&#xD;
+  return Streams.just(greeting);&#xD;
+});&#xD;
+&#xD;
+server.start();
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;We’ve also updated the TCP and ZeroMQ support to make better use of the important changes we made to &lt;code&gt;Stream&lt;/code&gt;. Most importantly, TCP servers and clients make use of Reactive Streams backpressure support to implement patterns like &amp;lsquo;stop-read&amp;rsquo; to keep the server from overflowing downstream processing by reading too much data from the client, before there are resources available to process it.&lt;/p&gt;&lt;h3&gt;&lt;a href="#the-road-to-ga" class="anchor" name="the-road-to-ga"&gt;&lt;/a&gt;The Road to GA&lt;/h3&gt;&lt;p&gt;We’ll do at least one more RC before releasing Reactor 2.0 GA. There’s still a few tweaks we need to make around complicated fork/join dispatching before we’re happy with its predictability. There are likely some additions to the HTTP support that we’ll want to make since this first cut is a fairly simple set of features. We might come across a few more bugs in edge cases as well. &lt;/p&gt;&lt;p&gt;We feel pretty good about this release candidate and we encourage you to try it out. If you’re doing new development, then we definitely encourage you to build on the Reactive Streams foundation of Reactor 2.0 versus the less capable, pre-Reactive Streams version in 1.1. If you’re upgrading existing Reactor code, the path is actually quite easy. In almost all cases your code will be greatly simplified. &lt;/p&gt;&lt;h3&gt;&lt;a href="#getting-support" class="anchor" name="getting-support"&gt;&lt;/a&gt;Getting Support&lt;/h3&gt;&lt;p&gt;If you run into problems upgrading your code, or just have general questions about how to use Reactor to solve your fast data problems, don’t hesitate to ask on the &lt;a href="https://groups.google.com/forum/#!forum/reactor-framework"&gt;Reactor Framework Google Group&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;We also welcome community contributions via &lt;a href="https://github.com/reactor/reactor/pulls"&gt;pull requests on GitHub&lt;/a&gt;.&lt;/p&gt;&lt;p&gt;You might also be interested to know that the Reactive Streams project is being considered for inclusion in JDK 9 in the form of a new &lt;code&gt;java.util.concurrent.Flow&lt;/code&gt; class and appropraite inner classes. The discussion on this topic is being held in the &lt;a href="http://g.oswego.edu/dl/concurrency-interest/"&gt;JSR-166 concurrency-interest&lt;/a&gt; mailling list managed by professor &lt;a href="http://gee.cs.oswego.edu/dl/"&gt;Doug Lea&lt;/a&gt; of the State University of New York at Oswego.&lt;/p&gt;&lt;h3&gt;&lt;a href="#getting-the-code" class="anchor" name="getting-the-code"&gt;&lt;/a&gt;Getting the Code&lt;/h3&gt;&lt;p&gt;Reactor is Apache 2.0 licensed and the project is managed through GitHub:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;strong&gt;Reactor (core, groovy, net)&lt;/strong&gt;: &lt;a href="https://github.com/reactor/reactor"&gt;https://github.com/reactor/reactor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;strong&gt;Reactor Spring&lt;/strong&gt;: &lt;a href="https://github.com/reactor/reactor-spring"&gt;https://github.com/reactor/reactor-spring&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>This Week in Spring - February 17th, 2015</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/02/17/this-week-in-spring-february-17th-2015" />
+    <category term="engineering" label="Engineering" />
+    <author>
+      <name>Josh Long</name>
+    </author>
+    <id>tag:spring.io,2015-02-18:1981</id>
+    <updated>2015-02-17T23:55:00Z</updated>
+    <content type="html">&lt;p&gt;Welcome to another installment of &lt;em&gt;This Week in Spring&lt;/em&gt;! This week I&amp;rsquo;ve been in studio recording the next iteration of the Spring Livelessons series, this one on building cloud-native applications (microservices) with Spring Boot, Spring Cloud, and Cloud Foundry. It&amp;rsquo;s been a lot of fun, and - this morning - I took a break to do two 1.5 hour webinars for O&amp;rsquo;Reilly on building Spring Boot applications and Spring Cloud microservices, both entirely live coded! It&amp;rsquo;s been a fun week for me, and I hope it has for you, as well. &lt;/p&gt;&lt;p&gt;This Thursday the 19th marks the culmination of this year&amp;rsquo;s &lt;em&gt;Lunar New Year&lt;/em&gt;, or &lt;a href="http://en.wikipedia.org/wiki/Chinese_New_Year"&gt;&lt;em&gt;Chinese new year&lt;/em&gt;&lt;/a&gt; or &lt;strong&gt;&lt;em&gt;Spring festival&lt;/em&gt;&lt;/strong&gt;. What&amp;rsquo;s this to do with Spring (the technology)? Not much, besides being a celebration of better things to come and a great name! So happy new year (????) to readers all around the world!&lt;/p&gt;&lt;p&gt;Anyway, without further ado, let&amp;rsquo;s get to it!&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;The good Dr. Mark Pollack just &lt;a href="http://spring.io/blog/2015/02/12/spring-xd-1-1-ga-and-1-0-4-released"&gt;announced Spring XD 1.1&lt;/a&gt;! The new release is &lt;em&gt;incredible&lt;/em&gt;: stream processing based on Reactor, RxJava, and Spark; Sqoop and Spark batch jobs (in addition to Spring Batch and Hadoop); Python processor modules; a Java configuration model for custom processor modules; integration with a myriad backends, including Kafka, and &lt;em&gt;much&lt;/em&gt; more! Get the bits, get your data processing pipelines done faster and more reliably, and get home in time to celebrate!&lt;/li&gt;
+  &lt;li&gt;The good Dr. Dave Syer just announced &lt;a href="http://spring.io/blog/2015/02/13/spring-cloud-1-0-0-rc3-available-now"&gt;Spring Cloud 1.0.0.RC3 is now available&lt;/a&gt;! This is &lt;em&gt;hopefully&lt;/em&gt; the last milestone before 1.0.0, so be sure to get the bits and try it out!&lt;/li&gt;
+  &lt;li&gt;Spring XD ninja Sabby Anandan put together a nice post &lt;a href="http://spring.io/blog/2015/02/12/spring-xd-data-driven-connectivity-within-a-unified-platform"&gt;looking at some of the &lt;em&gt;many&lt;/em&gt; new features in Spring XD 1.1&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Spring ninja Stephane Nicoll put together a nice post that &lt;a href="http://spring.io/blog/2015/02/11/better-application-events-in-spring-framework-4-2"&gt;looks at the new events support in Spring framework 4.2&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Benjamin Winterberg put together a lovely piece on building Isomorphic (JavaScript views rendered on both the client and the server with React.js) &lt;a href="http://winterbe.com/posts/2015/02/16/isomorphic-react-webapps-on-the-jvm/"&gt;applications with Spring Boot and Nashorn&lt;/a&gt;! This is so cool!&lt;/li&gt;
+  &lt;li&gt;Spring (and Spring Boot) make it super simple to put together a headless processing application - you know, one that doesn&amp;rsquo;t have an HTTP endpoint? So, naturally, &lt;a href="https://github.com/rburgst/spring-boot-initscript"&gt;I smiled when I saw this Spring Boot &lt;code&gt;init.d&lt;/code&gt; script&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;This Do-It-Yourself example of &lt;a href="http://blog.codeleak.pl/2015/02/openshift-diy-build-spring-boot.html"&gt;running Spring Boot on OpenShift is interesting&lt;/a&gt;. OpenShift has a concept of cartridges. I think - but am not 100% sure - that they provide map logically to the concept of buildpacks on Cloud Foundry and Heroku. Except, apparently, the DIY cartridge can&amp;rsquo;t be scaled up.. so this isn&amp;rsquo;t exactly recommended for any sort of real use.&lt;/li&gt;
+  &lt;li&gt;Our pal Dan Woods put together another &lt;a href="http://www.infoq.com/articles/boot-microservices"&gt;stellar look at Spring Boot for microservices for InfoQ&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;The amazing &lt;a href="http://twitter.com/bdussault"&gt;Brian Dussault&lt;/a&gt; put together &lt;a href="http://spring.io/blog/2015/02/11/java-doesn-t-suck-rockin-the-jvm"&gt;a nice follow-up post&lt;/a&gt; to our pal [James Wards&amp;rsquo; post, &lt;a href="http://www.jamesward.com/2014/12/03/java-doesnt-suck-youre-just-using-it-wrong"&gt;&lt;em&gt;Java Doesn&amp;rsquo;t Suck, You&amp;rsquo;re Just Doing it Wrong&lt;/em&gt;&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Check out this replay to Andy Wilkinson&amp;rsquo;s talk, &lt;a href="http://spring.io/blog/2015/02/10/webinar-replay-documenting-rest-ful-apis"&gt;&lt;em&gt;Documenting REST APIs&lt;/em&gt;&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Want to learn more about the Spring Integration Java configuration DSL (that was rhetorical! Of course you do!), then check out &lt;a href="http://spring.io/blog/2015/02/10/webinar-replay-introducing-the-java-dsl-for-spring-integration"&gt;the replay of Gary Russell&amp;rsquo;s awesome webinar on the subject&lt;/a&gt;.&lt;/li&gt;
+  &lt;li&gt;Speaking of Dan Woods, check out the replay &lt;a href="http://spring.io/blog/2015/02/10/springone2gx-2014-replay-ratpack-web-framework"&gt;of his SpringOne2GX 2014 talk introducing RatPack&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Groovy-language ninja Cédric Champeau&amp;rsquo;s SpringOne2GX 2014 talk, &lt;a href="http://spring.io/blog/2015/02/10/springone2gx-2014-replay-rethinking-api-design-with-traits"&gt;&lt;em&gt;Rethinking API Design with Traits&lt;/em&gt;&lt;/a&gt; is available!&lt;/li&gt;
+  &lt;li&gt;Kenneth Kousen&amp;rsquo;s SpringOne2GX 2014 talk introducing the various &lt;a href="http://spring.io/blog/2015/02/10/springone2gx-2014-replay-testing-grails"&gt;approaches to unit-testing in Grails is now available online&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Ryan Vanderwerf&amp;rsquo;s SpringOne2GX 2014 talk introducing &lt;a href="http://spring.io/blog/2015/02/10/springone2gx-2014-replay-web-clustering-integration-with-terracotta-bigmemory-quartz-grails"&gt;web clustering with Terracotta and Grails is now available online&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Peter Niederwieser&amp;rsquo;s SpringOne2GX 2014 talk, &lt;a href="http://spring.io/blog/2015/02/10/springone2gx-2014-replay-building-a-continuous-delivery-pipeline-with-gradle-and-jenkins"&gt;&lt;em&gt;Building a Continuous Delivery Pipeline with Gradle and Jenkins&lt;/em&gt;, is now available&lt;/a&gt;!&lt;/li&gt;
+  &lt;li&gt;Colin Harrington&amp;rsquo;s SpringOne2GX 2014 talk on securing &lt;a href="http://spring.io/blog/2015/02/10/springone2gx-2014-replay-securing-your-grails-app-beyond-authentication-authorization"&gt;Grails apps is now available&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Also, &lt;a href="http://thenextweb.com/insider/2015/02/18/http2-first-major-update-http-sixteen-years-finalized/"&gt;HTTP 2 is final&lt;/a&gt;!&lt;/li&gt;
+&lt;/ul&gt;</content>
+  </entry>
+  <entry>
+    <title>SpringOne2GX 2014 Replay: "Bootiful" Applications with Spring Boot</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/02/17/springone2gx-2014-replay-bootiful-applications-with-spring-boot" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Pieter Humphrey</name>
+    </author>
+    <id>tag:spring.io,2015-02-18:1980</id>
+    <updated>2015-02-17T22:57:00Z</updated>
+    <content type="html">&lt;p&gt;Recorded at SpringOne2GX 2014. &lt;/p&gt;
+&lt;p&gt;Speaker: Josh Long, Phil Webb&lt;/p&gt;
+&lt;p&gt; Slides: &lt;a href="http://www.slideshare.net/SpringCentral/bootiful"&gt;http://www.slideshare.net/SpringCentral/bootiful&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Core Spring Track &lt;/p&gt;
+&lt;p&gt;Alright, so maybe &amp;quot;bootiful&amp;quot; won't ever work, but we tried, and it was worth it too because you're reading this. Spring Boot, the new convention-over-configuration centric framework from the Spring team at Pivotal, marries Spring's flexibility with conventional, common sense defaults to make application development not just fly, but pleasant! Join Spring developer advocate Josh Long and Spring Boot co-lead Phillip Webb for a look at what Spring Boot is, why it's turning heads, why you should consider it for your next application (REST, web, batch, big-data, integration, whatever!) and how to get started.&lt;/p&gt;
+&lt;p&gt;&#xD;
+  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/HCyYEVRZISk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
+&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>SpringOne2GX 2014 Replay: Testing with Spring Framework 4.x</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/02/17/springone2gx-2014-replay-testing-with-spring-framework-4-x" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Pieter Humphrey</name>
+    </author>
+    <id>tag:spring.io,2015-02-18:1979</id>
+    <updated>2015-02-17T22:47:00Z</updated>
+    <content type="html">&lt;p&gt;Recorded at SpringOne2GX 2014. &lt;/p&gt;
+&lt;p&gt;Speaker: Sam Brannen, Swiftmind &lt;/p&gt;
+&lt;p&gt;Core Spring Track &lt;/p&gt;
+&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/testing-with-spring-framework-4x"&gt;http://www.slideshare.net/SpringCentral/testing-with-spring-framework-4x&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;The Spring Framework has undergone a lot of innovation in the 4.0 and 4.1 releases, and so has its testing support. Join Spring Test component lead Sam Brannen in this talk to discover what's new in Spring's testing support in 4.0 through 4.1. This talk will provide attendees an overview of what's been deprecated, what's changed, and what's been introduced in Spring's testing support over the last two years, with real life examples and tips for best practices. Highlights include using SocketUtils to scan for free TCP &amp;amp; UDP server ports, the ActiveProfilesResolver API, meta-annotation support for test annotations including attribute overrides, best practices with TestNG, using Groovy scripts to configure an ApplicationContext for integration tests, improvements to SQL script execution and embedded databases, the new TestContext framework bootstrap strategy, programmatic transaction management in tests, and more.&lt;/p&gt;
+&lt;p&gt;&#xD;
+  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/5tgkxGEvK4U" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
+&lt;/p&gt;</content>
+  </entry>
+  <entry>
+    <title>SpringOne2GX 2014 Replay: Reactive Oriented Architecture with Grails</title>
+    <link rel="alternate" href="https://spring.io/blog/2015/02/17/springone2gx-2014-replay-reactive-oriented-architecture-with-grails" />
+    <category term="news" label="News and Events" />
+    <author>
+      <name>Pieter Humphrey</name>
+    </author>
+    <id>tag:spring.io,2015-02-18:1978</id>
+    <updated>2015-02-17T22:46:00Z</updated>
+    <content type="html">&lt;p&gt;Recorded at SpringOne2GX 2014. &lt;/p&gt;
+&lt;p&gt;Speaker: Steve Pember &lt;/p&gt;
+&lt;p&gt;G&amp;amp;G Special Topics &lt;/p&gt;
+&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/reactive-grails"&gt;http://www.slideshare.net/SpringCentral/reactive-grails&lt;/a&gt; &lt;/p&gt;
+&lt;p&gt;The natural tendency for application developers is to construct their code in a procedural, synchronous, monolithic pattern. Veteran developers know that this leads to error prone, unscalable, slow software - yet it is alarmingly prevalent. There have been several architectural patterns that have risen over the years which have attempted to mitigate this problem. One of the most popular has been Service Oriented Architecture, which involves breaking the monolithic application into a distributed system of several smaller services. In this talk, I argue that SOA is a decent start, but not nearly good enough. I will discuss the tenants of the Reactive Pattern and the importance of moving away from Monolithic to Reactive architectures. We will discuss the various Groovy-friendly technologies that allow us to build distributed, micro-service based applications and cover effective communication strategies between each service. We will see how being Reactive is the only viable architecture for large, efficient, scalable systems. If Reactive is new to you, this should be an excellent introduction.&lt;/p&gt;
+&lt;p&gt;&#xD;
+  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/wUxbb6X0Kgs" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
+&lt;/p&gt;</content>
+  </entry>
   <entry>
     <title>Spring Cloud 1.0.0.RC3 Available Now</title>
     <link rel="alternate" href="https://spring.io/blog/2015/02/13/spring-cloud-1-0-0-rc3-available-now" />
@@ -156,7 +304,7 @@ public class MyComponent {&#xD;
       <name>Brian Dussault</name>
     </author>
     <id>tag:spring.io,2015-01-28:1947</id>
-    <updated>2015-02-11T14:27:09Z</updated>
+    <updated>2015-02-11T14:27:00Z</updated>
     <content type="html">&lt;p&gt;Recently James Ward wrote a great blog post, &lt;a href="http://www.jamesward.com/2014/12/03/java-doesnt-suck-youre-just-using-it-wrong"&gt;“Java Doesn’t Suck – You’re Just Using it Wrong”&lt;/a&gt;, which highlighted numerous challenges that enterprise Java developers face in their daily routines building Java applications. The good news is that breaking out of the development rut is much easier than you may think. Over the last few years, Spring has redefined how modern Java applications are built while dramatically improving development velocity. In this post, I’ll use James Ward’s blog post as a backdrop to explain how Spring helps developers rock the JVM (using Java) while tackling each of the issues James outlined.&lt;/p&gt;&lt;h2&gt;&lt;a href="#instant-development-environment-setup-rocks" class="anchor" name="instant-development-environment-setup-rocks"&gt;&lt;/a&gt;Instant Development Environment Setup Rocks&lt;/h2&gt;&lt;p&gt;In James’ blog, he asserts “10 Page Wikis to Setup Dev Environments Suck”. We have all created these wiki pages at some point in our career and slogged through trying to keep them updated. These wikis have long been a source of frustration for new team members as they are often littered with outdated information. The good news is that Spring Boot’s build support makes automating this process quite easy.&lt;/p&gt;&lt;p&gt;Getting started with an existing application is a simple as cloning the source repository and running the application. Spring Boot provides support for Java’s most popular build tools, Maven and Gradle. Getting a fully functional application running with your favorite build tool is a simple as:&lt;/p&gt;&lt;p&gt;Maven example:&lt;/p&gt;
 &lt;pre&gt;&lt;code class="prettyprint"&gt;mvn spring-boot:run&#xD;
 
@@ -215,7 +363,7 @@ dependencies {&#xD;
 &lt;/code&gt;&lt;/pre&gt;&lt;h2&gt;&lt;a href="#short-development-validation-cycles-really-rock" class="anchor" name="short-development-validation-cycles-really-rock"&gt;&lt;/a&gt;Short Development / Validation Cycles Really Rock&lt;/h2&gt;&lt;p&gt;Most modern applications are being built with rich user interfaces communicating to back end services. Building applications in this manner has the benefit of strong separation of concerns between the UI and server side logic. Most modern IDEs provide dynamic reloading of static resources, allowing developers to see changes without restarting the server.&lt;/p&gt;&lt;p&gt;Spring Boot also supports server side templating technologies such as Thymeleaf, Freemarker, and Groovy. Spring Boot allows the dynamic reloading of these template technologies without incurring a server restart. For Thymeleaf this is as simple as setting the following property in the application.properties file:&lt;/p&gt;
 &lt;pre&gt;&lt;code class="prettyprint"&gt;spring.thymeleaf.cache: false&#xD;
 
-&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On the server side, breaking your monolithic applications into microservices will reduce the startup time of Spring Boot applications (which is already quite quick due to its use of lightweight embedded containers). Additionally, Spring Boot delivers support for the autoconfiguration of testing utilities. Enabling Boot’s testing autoconfiguration is as effortless as including the spring-boot-starter-test starter POM. This enables Spring Test, JUnit, Hamcrest, and Mockito dependencies making it easy to incorporate Test Driven Development (TDD) into daily workflows. TDD enables developers to receive immediate feedback on changes to their code.&lt;/p&gt;&lt;p&gt;Finally, JRebel provides comprehensive support for class reloading with support for over 80 Java frameworks (including Spring). Check out the webinar &lt;a href="https://www.youtube.com/watch?v=N5FHiONGOsg"&gt;Spring Boot and JRebel 6&lt;/a&gt; with Josh Long and Adam Koblentz for more details.&lt;/p&gt;&lt;h2&gt;&lt;a href="#microservice-style-architectures-rock" class="anchor" name="microservice-style-architectures-rock"&gt;&lt;/a&gt;Microservice Style Architectures Rock&lt;/h2&gt;&lt;p&gt;James’ statement that “Monolithic Releases Suck“ is spot on for large or complex distributed systems. Most developers want to work in a more iterative manner (agile) and release more frequently. The microservice style architecture has grown in popularity as a way to combat the challenges of monolithic applications. For folks new to microservices, Martin Fowler provides a great description of this architecture style in his &lt;a href="https://speakerdeck.com/dsyer/spring-cloud-spring-boot-and-netflix-oss"&gt;blog&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;When building distributed applications (including microservice style applications), there are many common system patterns that appear. Spring Cloud makes it simple to adopt these patterns by providing out-of-the-box services to tackle the most common challenges. Spring Cloud implements patterns such as configuration management, service discovery, circuit breaker, intelligent routing, micro-proxy, and control bus. Spring Boot makes it drop dead simple to integrate these capabilities into your application.&lt;/p&gt;&lt;p&gt;For example, the Spring Cloud Netflix project makes standing up a service discovery service with Netflix’s Eureka as easy as: &lt;/p&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;On the server side, breaking your monolithic applications into microservices will reduce the startup time of Spring Boot applications (which is already quite quick due to its use of lightweight embedded containers). Additionally, Spring Boot delivers support for the autoconfiguration of testing utilities. Enabling Boot’s testing autoconfiguration is as effortless as including the spring-boot-starter-test starter POM. This enables Spring Test, JUnit, Hamcrest, and Mockito dependencies making it easy to incorporate Test Driven Development (TDD) into daily workflows. TDD enables developers to receive immediate feedback on changes to their code.&lt;/p&gt;&lt;p&gt;Finally, JRebel provides comprehensive support for class reloading with support for over 80 Java frameworks (including Spring). Check out the webinar &lt;a href="https://www.youtube.com/watch?v=N5FHiONGOsg"&gt;Spring Boot and JRebel 6&lt;/a&gt; with Josh Long and Adam Koblentz for more details.&lt;/p&gt;&lt;h2&gt;&lt;a href="#microservice-style-architectures-rock" class="anchor" name="microservice-style-architectures-rock"&gt;&lt;/a&gt;Microservice Style Architectures Rock&lt;/h2&gt;&lt;p&gt;James’ statement that “Monolithic Releases Suck“ is spot on for large or complex distributed systems. Most developers want to work in a more iterative manner (agile) and release more frequently. The microservice style architecture has grown in popularity as a way to combat the challenges of monolithic applications. For folks new to microservices, Martin Fowler provides a great description of this architecture style in his &lt;a href="http://martinfowler.com/articles/microservices.html"&gt;blog&lt;/a&gt;. &lt;/p&gt;&lt;p&gt;When building distributed applications (including microservice style applications), there are many common system patterns that appear. Spring Cloud makes it simple to adopt these patterns by providing out-of-the-box services to tackle the most common challenges. Spring Cloud implements patterns such as configuration management, service discovery, circuit breaker, intelligent routing, micro-proxy, and control bus. Spring Boot makes it drop dead simple to integrate these capabilities into your application.&lt;/p&gt;&lt;p&gt;For example, the Spring Cloud Netflix project makes standing up a service discovery service with Netflix’s Eureka as easy as: &lt;/p&gt;
 &lt;pre&gt;&lt;code class="prettyprint java"&gt;&lt;br/&gt;@SpringBootApplication &#xD;
 @EnableEurekaServer&#xD;
 &#xD;
@@ -467,94 +615,6 @@ helloStream.onNext(&amp;quot;World&amp;quot;);&#xD;
   &lt;li&gt;Integration tests using Spring&amp;rsquo;s Test Context support.&lt;/li&gt;
   &lt;li&gt;JHipster creates a fully usable AngularJS front-end on top of this Spring application, with CRUD screens to manage your generated entities.&lt;/li&gt;
 &lt;/ul&gt;&lt;h2&gt;&lt;a href="#developing-with-jhipster" class="anchor" name="developing-with-jhipster"&gt;&lt;/a&gt;Developing with JHipster&lt;/h2&gt;&lt;p&gt;JHipster is a great application starter, but once you have generated your application and added some CRUD Angular.JS screens on top of your JPA entities, you will need to get coding.&lt;/p&gt;&lt;p&gt;JHipster projects are ultimately just simple Spring Boot-based Maven and Gradle-based projects that can be imported into any IDE that knows about Maven (or Gradle) and Java.&lt;/p&gt;&lt;p&gt;JHipster gives you command-line tools to build and update your application. Grunt or Gulp.js help you build your front-end. For example, running &lt;code&gt;grunt serve&lt;/code&gt; will launch a browser that is managed by Grunt, that will be automatically reloaded when any of your HTML, JavaScript, or CSS code change. Bower allows you to upgrade or install JavaScript or CSS libraries. For example, running &lt;code&gt;bower install ng-table&lt;/code&gt; will install &lt;code&gt;ng-table&lt;/code&gt;.&lt;/p&gt;&lt;p&gt;You can run your Spring Boot application from the command line using the Spring Boot Maven plugin (or Gradle plugin): &lt;code&gt;mvn spring-boot:run&lt;/code&gt;. You can use the Maven Liquibase &lt;code&gt;diff&lt;/code&gt; goal to automatically generate a Liquibase changelog. Run &lt;code&gt;mvn liquibase:diff&lt;/code&gt; will check your existing database schema against your current (modified) JPA code and generate the necessary Liquibase changelog file in order to update your database schema automatically.&lt;/p&gt;&lt;p&gt;You can use Docker to set up your development box. This can be easier for some advanced users (especially Linux users), and will allow you to have a consistent working environment if you have a team of developers. A specific &lt;code&gt;jhipster-docker&lt;/code&gt; project has been created for this. Check out &lt;a href="http://jhipster.github.io/installation.html"&gt;the JHipster documentation page on installation for more details&lt;/a&gt;.&lt;/p&gt;&lt;h2&gt;&lt;a href="#managing-the-application-in-production" class="anchor" name="managing-the-application-in-production"&gt;&lt;/a&gt;Managing the Application in Production&lt;/h2&gt;&lt;p&gt;JHipster applications have a configured-by-default &lt;code&gt;admin&lt;/code&gt; user that has access to several &lt;em&gt;administration&lt;/em&gt;-specific screens. The three most interesting screens are the API screen (generated with Swagger), the metrics screen, and the logging screen. The &lt;strong&gt;API screen&lt;/strong&gt; documents the REST API of your Spring Boot application and simplifies working with front-end developers using Angular.JS. The &lt;strong&gt;metrics screen&lt;/strong&gt; uses Dropwizard Metrics and gives you detailed information on your application&amp;rsquo;s performance, including the performance of your Spring bean&amp;rsquo;s methods. The &lt;strong&gt;logging screen&lt;/strong&gt; uses Logback and allows you to change your logging levels at runtime. You could, for example, change the logging level of Spring Security in order to have detailed information on your security configuration.&lt;/p&gt;&lt;p&gt;JHipster has a &lt;code&gt;development&lt;/code&gt; and a &lt;code&gt;production&lt;/code&gt; mode. The &lt;code&gt;production&lt;/code&gt; mode gives you a minified and optimized front-end, GZip compression, HTTP caching and more. In order to test the &lt;code&gt;production&lt;/code&gt; mode, run your application with the &lt;code&gt;prod&lt;/code&gt; profile (available both with Maven or Gradle): &lt;code&gt;mvn spring-boot:run -Pprod&lt;/code&gt;. Using the Chrome Developer Tools, you can run an audit of your generated application to check performance.&lt;/p&gt;&lt;h2&gt;&lt;a href="#deploying-to-cloud-foundry" class="anchor" name="deploying-to-cloud-foundry"&gt;&lt;/a&gt;Deploying to Cloud Foundry&lt;/h2&gt;&lt;p&gt;JHipster has a Cloud Foundry &lt;code&gt;sub generator&lt;/code&gt; that makes it easy to deploy application to Cloud Foundry: &lt;code&gt;yo jhipster:cloudfoundry&lt;/code&gt;. This adds a Cloud Foundry application, creates a database (MySQL, PostgreSQL and MongoDB are supported) and then binds the database to the application and uploads (&lt;code&gt;cf push&lt;/code&gt;) your application to Cloud Foundry.&lt;/p&gt;&lt;h2&gt;&lt;a href="#next-steps" class="anchor" name="next-steps"&gt;&lt;/a&gt;Next Steps&lt;/h2&gt;&lt;p&gt;JHipster takes you further with fewer steps. If you want to learn more, check out the &lt;a href="http://jhipster.github.io/"&gt;JHipster site&lt;/a&gt;, the &lt;a href="https://github.com/jhipster/generator-jhipster"&gt;JHipster Github page&lt;/a&gt; and &lt;a href="http://twitter.com/java_hipster"&gt;follow @java_hipster on Twitter&lt;/a&gt;.&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>SpringOne2GX 2014 Replay: The Quest for the Holy Grails</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/02/09/springone2gx-2014-replay-the-quest-for-the-holy-grails" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-02-10:1966</id>
-    <updated>2015-02-09T23:51:00Z</updated>
-    <content type="html">&lt;p&gt;Speaker: Kenneth Kousen &lt;/p&gt;
-&lt;p&gt;Essential Grails Track&lt;/p&gt;
-&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/holy-grails"&gt;http://www.slideshare.net/SpringCentral/holy-grails&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Learn Grails from basic principles to advanced concepts by building a small, but interesting, application. Learn Grails from basic principles to advanced concepts by building a small, but interesting, application.&lt;/p&gt;
-&lt;p&gt;&#xD;
-  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/lY4-NFRHkbU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
-&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>SpringOne2GX 2014 Replay: RESTful Grails 2</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/02/09/springone2gx-2014-replay-restful-grails-2" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-02-08:1963</id>
-    <updated>2015-02-09T22:55:00Z</updated>
-    <content type="html">&lt;p&gt;Recorded at SpringOne2GX 2014. &lt;/p&gt;
-&lt;p&gt;Speaker: Jeff Scott Brown &lt;/p&gt;
-&lt;p&gt;Essential Grails Track &lt;/p&gt;
-&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/res-tful-grails2"&gt;http://www.slideshare.net/SpringCentral/res-tful-grails2&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;Grails 2 includes a lot of features and functionality related to building RESTful services. These include an entirely new and more flexibile data binding system, runtime and compile time metaprogramming which greatly reduce the amount of code required in your RESTful services, a rich set of content negotiation tools and more.&lt;/p&gt;
-&lt;p&gt;&#xD;
-  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/8xYi9n0pYFs" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
-&lt;/p&gt;&lt;p&gt;&lt;iframe width="560" height="315" src="" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>SpringOne2GX 2014 Replay: Grails 3.0 Preview</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/02/09/springone2gx-2014-replay-grails-3-0-preview" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-02-08:1962</id>
-    <updated>2015-02-09T22:54:00Z</updated>
-    <content type="html">&lt;p&gt;Recorded at SpringOne2GX 2014. &lt;/p&gt;
-&lt;p&gt;Speaker: Graeme Rocher &lt;/p&gt;
-&lt;p&gt;Essential Grails Track &lt;/p&gt;
-&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/2-gx-2014-grails-30-preview"&gt;http://www.slideshare.net/SpringCentral/2-gx-2014-grails-30-preview&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt; In this talk, Grails project lead Graeme Rocher will present a preview of the much anticipating version 3.0 rewrite of the Grails framework including presentation of the goals behind the changes and what will be achievable with the new version.&lt;/p&gt;
-&lt;p&gt;&#xD;
-  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/RWOm8hBi8nc" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
-&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>SpringOne2GX 2014 Replay: Scalable Big Data stream processing with Storm and Groovy</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/02/09/springone2gx-2014-replay-scalable-big-data-stream-processing-with-storm-and-groovy" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-02-08:1961</id>
-    <updated>2015-02-09T22:52:00Z</updated>
-    <content type="html">&lt;p&gt;Speaker: Eugene Dvorkin&lt;/p&gt;
-&lt;p&gt;More Groovy Track &lt;/p&gt;
-&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/storm-twtterwebmd"&gt;http://www.slideshare.net/SpringCentral/storm-twtterwebmd&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;With advances in distributed computing and creation of frameworks like Storm and Spark, building real-time, fault-tolerant, and scalable solutions to process huge volume of data in real-time has become easy. Storm is one of the most popular framework to develop real-time analytics and event processing applications. Storm enables to tackle real-time Big Data challenges the same way Hadoop enables batch processing of Big Data. One of the use cases of Storm is processing feeds from social networks in real-time. Social networks like Twitter, Facebook, LinkedIn, Google+ became part of our life. By analyzing social networks, companies can process important information about their product, services, and provide real-time information to customers. In this talk, Eugene will provide introduction to Storm framework, explain how to build real-time applications on top of Storm with Groovy, how to process data from Twitter in real-time and architectural decision behind WebMD MedPulse mobile application.&lt;/p&gt;
-&lt;p&gt;&#xD;
-  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/j1OqMNsYDJc" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
-&lt;/p&gt;</content>
-  </entry>
-  <entry>
-    <title>SpringOne2GX 2014 Replay: Testing Java, Groovy, Spring and Web Applications with Spock</title>
-    <link rel="alternate" href="https://spring.io/blog/2015/02/09/springone2gx-2014-replay-testing-java-groovy-spring-and-web-applications-with-spock" />
-    <category term="news" label="News and Events" />
-    <author>
-      <name>Pieter Humphrey</name>
-    </author>
-    <id>tag:spring.io,2015-02-08:1957</id>
-    <updated>2015-02-09T22:40:00Z</updated>
-    <content type="html">&lt;p&gt;Recorded at SpringOne2GX 2014. &lt;/p&gt;
-&lt;p&gt;Speaker: Peter Niederwieser &lt;/p&gt;
-&lt;p&gt;More Groovy Track &lt;/p&gt;
-&lt;p&gt;Slides: &lt;a href="http://www.slideshare.net/SpringCentral/testing-java-groovy-spring-and-web-applications-with-spock"&gt;http://www.slideshare.net/SpringCentral/testing-java-groovy-spring-and-web-applications-with-spock&lt;/a&gt; &lt;/p&gt;
-&lt;p&gt;Spock is a popular testing framework (mainly) for Java and Groovy applications. After a short introduction, I will discuss Spock's Java and Groovy specific features, will show how Spock can be used for integration testing of Spring applications, and how combining it with Geb yields a powerful solution for acceptance testing of web applications. Finally, I will demonstrate how Spock can be extended to build out the test infrastructure for your project, and will showcase the latest features planned for the mythical Spock 1.0 release.&lt;/p&gt;
-&lt;p&gt;&#xD;
-  &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/GYszXrJtxKA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&#xD;
-&lt;/p&gt;</content>
   </entry>
 </feed>
 

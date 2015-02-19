@@ -1,0 +1,11 @@
+package unal.edu.gpj
+
+class Contest {
+	String name
+	Date startDate
+	Date finishDate
+	
+	
+    static constraints = {
+    }
+}

@@ -1,0 +1,9 @@
+package unal.edu.gpj
+
+class TestCaseDownload {
+	TestCase testCase
+	Date downloadDate
+	Date dueDate
+    static constraints = {
+    }
+}
