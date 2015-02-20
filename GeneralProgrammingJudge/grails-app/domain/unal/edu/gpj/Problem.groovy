@@ -8,5 +8,6 @@ class Problem {
 	
 
     static constraints = {
+		pdfDescription(nullable:false,maxSize: 3000000 /* 30 mb */)
     }
 }

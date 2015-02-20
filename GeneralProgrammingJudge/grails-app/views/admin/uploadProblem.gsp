@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>General Programming Judge</title>
+        <title>Admin</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <!-- Bootstrap -->
             
@@ -21,13 +21,24 @@
         <g:render template="/templates/header" />
         
         
+        
         <div class="container">
-            <div class="jumbotron">
-              <h1>Welcome again</h1>
-              <p class="lead">This is gonna be some awesome programming judge</p>
-              <a class="btn btn-primary btn-lg">Learn more</a>
-            </div>
+        	<div class="jumbotron">
+				<g:uploadForm controller='Admin' action='doUploadProblem'>
+				    <label>Title</label>
+					<input id="titleInput" name="titleInput" class="form-control" placeholder="title">
+					<br>
+				    <label>Pdf description</label>
+				    <input type='file' name='file'/>
+				    <br>
+				    <input class="btn btn-primary btn-lg" type='submit'/>
+				</g:uploadForm>
+        		
+        		<br>
+        		<a class="btn btn-primary btn-lg" href="index">Back</a>
+        	</div>
         </div>
+        
         
         
         

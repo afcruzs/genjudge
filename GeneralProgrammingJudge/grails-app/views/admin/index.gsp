@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>General Programming Judge</title>
+        <title>Admin</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <!-- Bootstrap -->
             
@@ -22,13 +22,29 @@
         
         
         <div class="container">
+        	<h2>Problems</h2>
             <div class="jumbotron">
-              <h1>Welcome again</h1>
-              <p class="lead">This is gonna be some awesome programming judge</p>
-              <a class="btn btn-primary btn-lg">Learn more</a>
+              	<a class="btn btn-primary btn-lg" href="uploadProblem">Upload Problem</a>
+              	<a class="btn btn-primary btn-lg" href="#">Delete Problem</a>
+              	
             </div>
         </div>
         
+        <div class="container">
+        	<h2>Contest</h2>
+            <div class="jumbotron">
+              <a class="btn btn-primary btn-lg">Create Contest</a>
+              <a class="btn btn-primary btn-lg">Delete Contest</a>
+              <a class="btn btn-primary btn-lg">See Contest</a>              
+            </div>
+        </div>
+        
+        <div class="container">
+        	<h2>Ranking</h2>
+            <div class="jumbotron">
+              <a class="btn btn-primary btn-lg">Check Ranking</a>
+            </div>
+        </div>
         
         
         
