@@ -37,6 +37,33 @@ class AdminController {
 		}
 	}
 	
+	def testProblem(){
+		
+		def xd = Problem.list()
+		def lol = xd.get(0)
+		render( view: "testProblem", model : [ problem : lol ] )
+		
+	}
+	
+	def getPdf(){
+		println "ENtro!!"
+		Problem p = Problem.get(params.id)
+		if (!p|| !p.pdfDescription || !p.pdfDescription ) {
+		  println "ERROOOOOOOOOOOOOORRR"
+		  response.sendError(404)
+		  return
+		}
+		response.contentType = p.pdfDescription
+		response.contentLength = p.pdfDescription.size()
+		
+		
+		response.setContentType("application/pdf")
+        OutputStream out = response.getOutputStream()
+        out << p.pdfDescription
+        out.flush()
+	}
+
+	
 	def xd(){
 		render Problem.list().size()
 	}
