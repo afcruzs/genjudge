@@ -31,7 +31,16 @@
 				    <label>Pdf description</label>
 				    <input type='file' name='file'/>
 				    <br>
-				    <input class="btn btn-primary btn-lg" type='submit'/>
+				    <label> Input Cases </label> 
+				    <input type="file" name="input" multiple>
+				    <br>
+				    <label> Output Cases </label> 
+				    <input type="file" name="output" multiple>
+				    <br>
+				    <label>Time (Milliseconds) </label>
+					<input  type="number"  id="time" name="time" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
+					<br>
+				    <input class="btn btn-primary btn-lg" type='submit' value="Save"/>
 				</g:uploadForm>
         		
         		<br>

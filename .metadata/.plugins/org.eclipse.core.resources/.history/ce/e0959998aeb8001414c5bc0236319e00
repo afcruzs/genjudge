@@ -1,0 +1,31 @@
+package unal.edu.gpj
+
+import org.springframework.web.multipart.commons.CommonsMultipartFile
+
+class AdminController {
+
+    def index() { }
+	
+	def uploadProblem(){}
+	
+	def doUploadProblem(){
+		
+		/*def bytesFile = request.getFile('file').getBytes()
+		def name = params.titleInput
+		def newProblem = new Problem(name:name,pdfDescription:bytesFile)
+		newProblem.save()*/
+		def testCases = request.getMultiFileMap().testCases
+		 
+		println "SIZE; " + testCases.size()
+		for(int i=0; i<testCases.size(); i++){
+			println i
+			println testCases[i]..getOriginalFilename()
+		}
+
+		render "LOL" + testCases.size()
+	}
+	
+	def xd(){
+		render Problem.list().size()
+	}
+}

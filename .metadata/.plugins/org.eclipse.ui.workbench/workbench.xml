@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<workbench progressCount="83" version="2.0">
+<workbench progressCount="88" version="2.0">
 <workbenchAdvisor/>
 <window height="728" maximized="true" width="1024" x="0" y="0">
 <fastViewData fastViewLocation="1024">
@@ -41,6 +41,9 @@
 <part id="1"/>
 <part id="2"/>
 <part id="3"/>
+<part id="4"/>
+<part id="5"/>
+<part id="6"/>
 </presentation>
 </folder>
 </info>
@@ -53,13 +56,25 @@
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeneralProgrammingJudge/grails-app/controllers/unal/edu/gpj/HomeController.groovy"/>
 <editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="175" selectionTopPixel="0"/>
 </editor>
-<editor id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="BuildConfig.groovy" partName="BuildConfig.groovy" path="D:/genjudge/GeneralProgrammingJudge/grails-app/conf/BuildConfig.groovy" title="BuildConfig.groovy" tooltip="GeneralProgrammingJudge/grails-app/conf/BuildConfig.groovy" workbook="DefaultEditorWorkbook">
-<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeneralProgrammingJudge/grails-app/conf/BuildConfig.groovy"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2041" selectionTopPixel="435"/>
-</editor>
-<editor activePart="true" focus="true" id="org.grails.ide.eclipse.editor.gsp.editor" name="index.gsp" partName="index.gsp" path="D:/genjudge/GeneralProgrammingJudge/grails-app/views/home/index.gsp" title="index.gsp" tooltip="GeneralProgrammingJudge/grails-app/views/home/index.gsp" workbook="DefaultEditorWorkbook">
+<editor id="org.grails.ide.eclipse.editor.gsp.editor" name="index.gsp" partName="index.gsp" path="D:/genjudge/GeneralProgrammingJudge/grails-app/views/home/index.gsp" title="index.gsp" tooltip="GeneralProgrammingJudge/grails-app/views/home/index.gsp" workbook="DefaultEditorWorkbook">
 <input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeneralProgrammingJudge/grails-app/views/home/index.gsp"/>
-<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2630" selectionTopPixel="540"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="2341" selectionTopPixel="0"/>
+</editor>
+<editor activePart="true" focus="true" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="Contest.groovy" partName="Contest.groovy" path="D:/genjudge/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contest.groovy" title="Contest.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contest.groovy" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contest.groovy"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="185" selectionTopPixel="0"/>
+</editor>
+<editor id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="Problem.groovy" partName="Problem.groovy" path="D:/genjudge/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Problem.groovy" title="Problem.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Problem.groovy" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Problem.groovy"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="118" selectionTopPixel="0"/>
+</editor>
+<editor id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="TestCase.groovy" partName="TestCase.groovy" path="D:/genjudge/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCase.groovy" title="TestCase.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCase.groovy" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCase.groovy"/>
+<editorState selectionHorizontalPixel="0" selectionLength="8" selectionOffset="30" selectionTopPixel="0"/>
+</editor>
+<editor id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="TestCaseDownload.groovy" partName="TestCaseDownload.groovy" path="D:/genjudge/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCaseDownload.groovy" title="TestCaseDownload.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCaseDownload.groovy" workbook="DefaultEditorWorkbook">
+<input factoryID="org.eclipse.ui.part.FileEditorInputFactory" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCaseDownload.groovy"/>
+<editorState selectionHorizontalPixel="0" selectionLength="0" selectionOffset="60" selectionTopPixel="0"/>
 </editor>
 </editors>
 <views>
@@ -71,6 +86,9 @@
 <view id="org.eclipse.ui.views.ProgressView" partName="Progress"/>
 <view id="org.eclipse.ui.views.ProblemView" partName="Problems">
 <viewState PRIMARY_SORT_FIELD="org.eclipse.ui.ide.severityAndDescriptionField" categoryGroup="org.eclipse.ui.ide.severity" markerContentGenerator="org.eclipse.ui.ide.problemsGenerator" partName="Problems">
+<expanded>
+<category IMemento.internal.id="Warnings (1 item)"/>
+</expanded>
 <columnWidths org.eclipse.ui.ide.locationField="90" org.eclipse.ui.ide.markerType="90" org.eclipse.ui.ide.pathField="120" org.eclipse.ui.ide.resourceField="90" org.eclipse.ui.ide.severityAndDescriptionField="300"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.severityAndDescriptionField"/>
 <visible IMemento.internal.id="org.eclipse.ui.ide.resourceField"/>
@@ -84,7 +102,9 @@
 </view>
 <view id="org.eclipse.mylyn.tasks.ui.views.tasks" partName="Task List">
 <viewState linkWithEditor="true" presentation="org.eclipse.mylyn.tasks.ui.categorized">
-<sorter groupBy="CATEGORY_QUERY">&#x0A;<sorter>&#x0A;<sort0 sortDirection="1" sortKey="PRIORITY"/>
+<sorter groupBy="CATEGORY_QUERY">
+<sorter>
+<sort0 sortDirection="1" sortKey="PRIORITY"/>
 <sort1 sortDirection="1" sortKey="RANK"/>
 <sort2 sortDirection="1" sortKey="DATE_CREATED"/>
 <sort3 sortDirection="1" sortKey="NONE"/>
@@ -104,7 +124,7 @@
 <viewState CommonNavigator.LINKING_ENABLED="0"/>
 </view>
 </views>
-<perspectives activePart="org.grails.ide.eclipse.editor.gsp.editor" activePerspective="org.grails.ide.eclipse.perspective">
+<perspectives activePart="org.codehaus.groovy.eclipse.editor.GroovyEditor" activePerspective="org.grails.ide.eclipse.perspective">
 <perspective editorAreaTrimState="1" editorAreaVisible="1" fixed="0" version="0.016">
 <descriptor class="org.grails.ide.eclipse.ui.internal.perspective.GrailsPerspective" id="org.grails.ide.eclipse.perspective" label="Grails"/>
 <alwaysOnActionSet id="org.eclipse.pde.ui.SearchActionSet"/>
@@ -211,7 +231,7 @@
 <layout>
 <mainWindow>
 <info folder="true" part="left">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.navigator.ProjectExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.PackageExplorer" label="LabelNotFound"/>
 <page content="org.eclipse.jdt.ui.TypeHierarchy" label="LabelNotFound"/>
@@ -228,20 +248,20 @@
 </info>
 <info part="org.eclipse.ui.editorss" ratio="0.34353405" ratioLeft="348" ratioRight="665" relationship="2" relative="left"/>
 <info folder="true" part="topright" ratio="0.7493333" ratioLeft="562" ratioRight="188" relationship="2" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.mylyn.tasks.ui.views.tasks" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="middleright" ratio="0.54859966" ratioLeft="333" ratioRight="274" relationship="4" relative="topright">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.views.ContentOutline" label="LabelNotFound"/>
 <page content="org.eclipse.ui.texteditor.TemplatesView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
 </info>
 <info folder="true" part="bottom" ratio="0.45652175" ratioLeft="273" ratioRight="325" relationship="4" relative="org.eclipse.ui.editorss">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.ui.console.ConsoleView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.AllMarkersView" label="LabelNotFound"/>
 <page content="org.eclipse.ui.views.ProgressView" label="LabelNotFound"/>
@@ -256,7 +276,7 @@
 </folder>
 </info>
 <info folder="true" part="bottomleft" ratio="0.7990115" ratioLeft="485" ratioRight="122" relationship="4" relative="left">
-<folder appearance="2" expanded="2">
+<folder appearance="2" expanded="0">
 <page content="org.eclipse.wst.server.ui.ServersView" label="LabelNotFound"/>
 <presentation id="org.eclipse.ui.presentations.WorkbenchPresentationFactory"/>
 </folder>
@@ -268,15 +288,6 @@
 <workingSets/>
 <navigationHistory>
 <editors>
-<editor factoryID="org.springsource.ide.eclipse.dashboard.ui.dashboard.elementFactory" id="com.springsource.sts.internal.ide.ui.editors.MultiPageDashboardEditor" openDashboard="true"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/conf/BuildConfig.groovy"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/conf/unal/edu/gpj/SecurityFilters.groovy"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/conf/BootStrap.groovy"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/conf/spring/resources.groovy"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/controllers/unal/edu/gpj/HomeController.groovy"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/User.groovy"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Student.groovy"/>
-<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contestant.groovy"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contestant.groovy"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/User.groovy"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/controllers/unal/edu/gpj/HomeController.groovy"/>
@@ -286,107 +297,160 @@
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/conf/BuildConfig.groovy"/>
 <editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.grails.ide.eclipse.editor.gsp.editor" path="/GeneralProgrammingJudge/grails-app/views/home/index.gsp"/>
 <editor factoryID="org.springsource.ide.eclipse.dashboard.ui.dashboard.elementFactory" id="com.springsource.sts.internal.ide.ui.editors.MultiPageDashboardEditor" openDashboard="true"/>
+<editor factoryID="org.springsource.ide.eclipse.dashboard.ui.dashboard.elementFactory" id="com.springsource.sts.internal.ide.ui.editors.MultiPageDashboardEditor" openDashboard="true"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Problem.groovy"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/InputOutput.groovy"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCase.groovy"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contest.groovy"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Submission.groovy"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCase.groovy"/>
+<editor factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCaseDownload.groovy"/>
 </editors>
-<item historyLabel="Dashboard" index="0"/>
-<item historyLabel="BuildConfig.groovy" index="1">
-<position info="not_deleted" x="2004" y="0"/>
-</item>
-<item historyLabel="SecurityFilters.groovy" index="2">
+<item historyLabel="User.groovy" index="1">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="BootStrap.groovy" index="3">
-<position info="not_deleted" x="99" y="0"/>
-</item>
-<item historyLabel="BootStrap.groovy" index="3">
-<position info="not_deleted" x="643" y="0"/>
-</item>
-<item historyLabel="BootStrap.groovy" index="3">
-<position info="not_deleted" x="388" y="4"/>
-</item>
-<item historyLabel="BootStrap.groovy" index="3">
-<position info="not_deleted" x="178" y="4"/>
-</item>
-<item historyLabel="BootStrap.groovy" index="3">
-<position info="not_deleted" x="643" y="0"/>
-</item>
-<item historyLabel="resources.groovy" index="4">
-<position info="not_deleted" x="176" y="0"/>
-</item>
-<item historyLabel="HomeController.groovy" index="5">
-<position info="not_deleted" x="153" y="0"/>
-</item>
-<item historyLabel="User.groovy" index="6">
-<position/>
-</item>
-<item historyLabel="HomeController.groovy" index="5">
-<position info="not_deleted" x="153" y="0"/>
-</item>
-<item historyLabel="BootStrap.groovy" index="3">
-<position info="not_deleted" x="346" y="0"/>
-</item>
-<item historyLabel="HomeController.groovy" index="5">
-<position info="not_deleted" x="153" y="0"/>
-</item>
-<item historyLabel="User.groovy" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Student.groovy" index="7">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="User.groovy" index="6">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Contestant.groovy" index="8">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Contestant.groovy" index="9">
-<position info="not_deleted" x="75" y="0"/>
-</item>
-<item historyLabel="User.groovy" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Contestant.groovy" index="9">
-<position info="not_deleted" x="75" y="0"/>
-</item>
-<item historyLabel="User.groovy" index="10">
-<position info="not_deleted" x="0" y="0"/>
-</item>
-<item historyLabel="Contestant.groovy" index="9">
+<item historyLabel="Contestant.groovy" index="0">
 <position info="not_deleted" x="74" y="0"/>
 </item>
-<item historyLabel="HomeController.groovy" index="11">
+<item historyLabel="HomeController.groovy" index="2">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="Contestant.groovy" index="9">
+<item historyLabel="Contestant.groovy" index="0">
 <position info="not_deleted" x="64" y="0"/>
 </item>
-<item historyLabel="User.groovy" index="12">
+<item historyLabel="User.groovy" index="3">
 <position info="not_deleted" x="114" y="0"/>
 </item>
-<item historyLabel="Role.groovy" index="13">
+<item historyLabel="Role.groovy" index="4">
 <position info="not_deleted" x="28" y="4"/>
 </item>
-<item historyLabel="User.groovy" index="12">
+<item historyLabel="User.groovy" index="3">
 <position info="not_deleted" x="114" y="0"/>
 </item>
-<item historyLabel="HomeController.groovy" index="14">
+<item historyLabel="HomeController.groovy" index="5">
 <position info="not_deleted" x="0" y="0"/>
 </item>
-<item historyLabel="BuildConfig.groovy" index="15">
+<item historyLabel="BuildConfig.groovy" index="6">
 <position info="not_deleted" x="2041" y="0"/>
 </item>
-<item historyLabel="index.gsp" index="16">
+<item historyLabel="index.gsp" index="7">
 <position/>
 </item>
-<item historyLabel="HomeController.groovy" index="14">
+<item historyLabel="HomeController.groovy" index="5">
 <position info="not_deleted" x="175" y="0"/>
 </item>
-<item historyLabel="index.gsp" index="16">
+<item historyLabel="index.gsp" index="7">
 <position/>
 </item>
-<item historyLabel="Dashboard" index="17"/>
-<item active="true" historyLabel="index.gsp" index="16">
+<item historyLabel="Dashboard" index="8"/>
+<item historyLabel="index.gsp" index="7">
 <position info="not_deleted" x="2546" y="0"/>
+</item>
+<item historyLabel="Dashboard" index="9"/>
+<item historyLabel="index.gsp" index="7">
+<position info="not_deleted" x="2341" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="80" y="0"/>
+</item>
+<item historyLabel="InputOutput.groovy" index="11">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="InputOutput.groovy" index="11">
+<position info="not_deleted" x="76" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="127" y="0"/>
+</item>
+<item historyLabel="InputOutput.groovy" index="11">
+<position info="not_deleted" x="85" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="122" y="0"/>
+</item>
+<item historyLabel="TestCase.groovy" index="12">
+<position info="not_deleted" x="0" y="0"/>
+</item>
+<item historyLabel="TestCase.groovy" index="12">
+<position info="not_deleted" x="47" y="0"/>
+</item>
+<item historyLabel="TestCase.groovy" index="12">
+<position info="not_deleted" x="120" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="22" y="0"/>
+</item>
+<item historyLabel="TestCase.groovy" index="12">
+<position info="not_deleted" x="120" y="0"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position info="not_deleted" x="168" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="83" y="41"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position info="not_deleted" x="166" y="0"/>
+</item>
+<item historyLabel="Submission.groovy" index="14">
+<position info="not_deleted" x="30" y="10"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position info="not_deleted" x="166" y="0"/>
+</item>
+<item historyLabel="Submission.groovy" index="14">
+<position info="not_deleted" x="119" y="0"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position info="not_deleted" x="166" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="129" y="0"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="30" y="7"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="106" y="0"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="30" y="7"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="118" y="0"/>
+</item>
+<item historyLabel="TestCase.groovy" index="15">
+<position info="not_deleted" x="30" y="8"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="118" y="0"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position/>
+</item>
+<item historyLabel="TestCaseDownload.groovy" index="16">
+<position info="not_deleted" x="30" y="16"/>
+</item>
+<item historyLabel="Problem.groovy" index="10">
+<position info="not_deleted" x="118" y="0"/>
+</item>
+<item historyLabel="Contest.groovy" index="13">
+<position/>
+</item>
+<item historyLabel="TestCaseDownload.groovy" index="16">
+<position info="not_deleted" x="60" y="0"/>
+</item>
+<item active="true" historyLabel="Contest.groovy" index="13">
+<position/>
 </item>
 </navigationHistory>
 <input factoryID="org.eclipse.ui.internal.model.ResourceFactory" path="/" type="8"/>
@@ -415,6 +479,24 @@
 </trimLayout>
 </window>
 <mruList>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="TestCaseDownload.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCaseDownload.groovy">
+<persistable path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCaseDownload.groovy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="TestCase.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCase.groovy">
+<persistable path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/TestCase.groovy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="Problem.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Problem.groovy">
+<persistable path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Problem.groovy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="Contest.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contest.groovy">
+<persistable path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Contest.groovy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="Submission.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Submission.groovy">
+<persistable path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/Submission.groovy"/>
+</file>
+<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="InputOutput.groovy" tooltip="GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/InputOutput.groovy">
+<persistable path="/GeneralProgrammingJudge/grails-app/domain/unal/edu/gpj/InputOutput.groovy"/>
+</file>
 <file factoryID="org.springsource.ide.eclipse.dashboard.ui.dashboard.elementFactory" id="com.springsource.sts.internal.ide.ui.editors.MultiPageDashboardEditor" name="Dashboard" tooltip="Dashboard">
 <persistable openDashboard="true"/>
 </file>
@@ -441,15 +523,6 @@
 </file>
 <file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="resources.groovy" tooltip="GeneralProgrammingJudge/grails-app/conf/spring/resources.groovy">
 <persistable path="/GeneralProgrammingJudge/grails-app/conf/spring/resources.groovy"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="BootStrap.groovy" tooltip="GeneralProgrammingJudge/grails-app/conf/BootStrap.groovy">
-<persistable path="/GeneralProgrammingJudge/grails-app/conf/BootStrap.groovy"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="AuthController.groovy" tooltip="GeneralProgrammingJudge/grails-app/controllers/unal/edu/gpj/AuthController.groovy">
-<persistable path="/GeneralProgrammingJudge/grails-app/controllers/unal/edu/gpj/AuthController.groovy"/>
-</file>
-<file factoryID="org.eclipse.ui.part.FileEditorInputFactory" id="org.codehaus.groovy.eclipse.editor.GroovyEditor" name="SecurityFilters.groovy" tooltip="GeneralProgrammingJudge/grails-app/conf/unal/edu/gpj/SecurityFilters.groovy">
-<persistable path="/GeneralProgrammingJudge/grails-app/conf/unal/edu/gpj/SecurityFilters.groovy"/>
 </file>
 </mruList>
 </workbench>
