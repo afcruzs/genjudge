@@ -1,6 +1,6 @@
 package unal.edu.gpj
 
-import org.springframework.web.multipart.commons.CommonsMultipartFile
+import java.text.DateFormat
 
 class AdminController {
 
@@ -33,8 +33,27 @@ class AdminController {
 				newProblem.addToTestCases(testCase)
 			}
 			newProblem.save()
-			render "LOL"
+			redirect(action:'index')
 		}
+	}
+	
+	def createContest(){
+		render( view: "createContest", model : [ problems : Problem.list() ] )
+	}
+	
+	def doCreate(){
+		DateFormat df = DateFormat.getDateInstance();
+		Date startDate = df.parse(params.dp1)
+		Date endDate = df.parse(params.dp2)
+		String name = params.titleInput
+		
+		Contest newContest = new Contest(name:name,startDate:startDate,finishDate:endDate)
+		for(String s : params.keySet()){
+			if( s.isNumber() )
+				newContest.addToProblems(Problem.get(Long.parseLong(s)))
+		}
+		newContest.save()
+		render newContest
 	}
 	
 	def testProblem(){

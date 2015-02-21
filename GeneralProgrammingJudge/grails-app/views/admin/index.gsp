@@ -33,7 +33,7 @@
         <div class="container">
         	<h2>Contest</h2>
             <div class="jumbotron">
-              <a class="btn btn-primary btn-lg">Create Contest</a>
+              <a class="btn btn-primary btn-lg" href="createContest">Create Contest</a>
               <a class="btn btn-primary btn-lg">Delete Contest</a>
               <a class="btn btn-primary btn-lg">See Contest</a>              
             </div>
