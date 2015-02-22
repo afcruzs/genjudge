@@ -1,0 +1,13 @@
+package unal.edu.gpj
+
+class CreateLinkToHomeTagLib {
+	
+	def loginService
+	def createLinkToHome = { attrs, body ->
+		if( loginService.isAdmin() )
+			out << g.createLink(controller:'admin',action:'index')
+		else
+			out << g.createLink(controller:'home',action:'index')
+		
+	 }
+}

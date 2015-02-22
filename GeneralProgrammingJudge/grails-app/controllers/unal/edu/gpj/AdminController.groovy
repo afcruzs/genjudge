@@ -12,24 +12,25 @@ class AdminController {
 		
 		def bytesFile = request.getFile('file').getBytes()
 		def name = params.titleInput
-		def newProblem = new Problem(name:name,pdfDescription:bytesFile)
+		def time = Long.parseLong(params.time)
+		def newProblem = new Problem(name:name,pdfDescription:bytesFile,timeToAnswer:time)
 		
 		def inputCases = request.getMultiFileMap().input
 		def outputCases = request.getMultiFileMap().output
-		def time = Long.parseLong(params.time)
+		
 		
 		if( inputCases.size() != outputCases.size() ) {
 			render "PLease upload the same amount of input/output files"
 		}else{
-			inputCases.sort{a,b -> a.getOriginalFilename().toLowerCase() <=> b.getOriginalFilename().toLowerCase()}
-			outputCases.sort{a,b -> a.getOriginalFilename().toLowerCase() <=> b.getOriginalFilename().toLowerCase()}
+			inputCases = inputCases.sort{a,b -> a.getOriginalFilename().toLowerCase() <=> b.getOriginalFilename().toLowerCase()}
+			outputCases = outputCases.sort{a,b -> a.getOriginalFilename().toLowerCase() <=> b.getOriginalFilename().toLowerCase()}
 			
 			
 			for(int i=0; i<inputCases.size(); i++){
 				TestCase testCase = new TestCase(
 					inputFile:inputCases[i].getBytes(),
-					outputFile:outputCases[i].getBytes(),
-					timeToAnswer:time)
+					outputFile:outputCases[i].getBytes()
+					)
 				newProblem.addToTestCases(testCase)
 			}
 			newProblem.save()
@@ -52,8 +53,14 @@ class AdminController {
 			if( s.isNumber() )
 				newContest.addToProblems(Problem.get(Long.parseLong(s)))
 		}
+		
+		//Adds ALL the users to any contest :)
+		for( User user : User.list() ){
+			newContest.addToUsers(user)
+		}
+		
 		newContest.save()
-		render newContest
+		redirect(action:'index')
 	}
 	
 	def testProblem(){

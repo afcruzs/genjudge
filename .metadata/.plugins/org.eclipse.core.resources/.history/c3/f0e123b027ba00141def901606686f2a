@@ -1,0 +1,17 @@
+package generalprogrammingjudge
+
+import org.apache.shiro.SecurityUtils
+
+import unal.edu.gpj.User
+
+
+class LoginService {
+
+    def getCurrentUser() {
+		return User.findByUsername(SecurityUtils.getSubject().getPrincipal())
+    }
+	
+	def isAdmin(){
+		def roles = getCurrentUser.getRoles()
+	}
+}

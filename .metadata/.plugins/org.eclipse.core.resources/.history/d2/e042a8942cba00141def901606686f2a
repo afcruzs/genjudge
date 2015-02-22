@@ -1,0 +1,16 @@
+package unal.edu.gpj
+import org.apache.shiro.SecurityUtils
+
+class ContestController {
+
+	def loginService
+	def index() {
+		render( view: "index", model : [ contests : Contest.list() ] )
+	}
+
+	def seeProblems(){
+		render( view: "index", model : [ 
+			user : loginService.getCurrentUser(), 
+			contest:Contest.get(Long.parseLong(params.contestId)) ] )
+	}
+}

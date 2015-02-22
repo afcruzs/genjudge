@@ -1,0 +1,8 @@
+package generalprogrammingjudge
+
+class LoginService {
+
+    def getCurrentUser() {
+		SecurityUtils.getSubject().getPrincipal()
+    }
+}

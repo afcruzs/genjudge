@@ -1,0 +1,8 @@
+package generalprogrammingjudge
+
+class LoginService {
+
+    def serviceMethod() {
+
+    }
+}

@@ -7,4 +7,12 @@ class TestCaseDownload {
 	Date dueDate
     static constraints = {
     }
+	
+	public String toString(){
+		return downloadDate.toString()
+	}
+	
+	public boolean equals(Object o){
+		return this.id == ((TestCaseDownload)o).id		
+	}
 }

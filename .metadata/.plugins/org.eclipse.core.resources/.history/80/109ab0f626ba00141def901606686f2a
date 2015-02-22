@@ -1,0 +1,11 @@
+package generalprogrammingjudge
+
+import org.apache.shiro.SecurityUtils
+
+
+class LoginService {
+
+    def getCurrentUser() {
+		SecurityUtils.getSubject().getPrincipal()
+    }
+}

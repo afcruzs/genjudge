@@ -1,0 +1,26 @@
+package unal.edu.gpj
+import org.apache.shiro.SecurityUtils
+
+class ContestController {
+
+	def loginService
+	def index() {
+		render( view: "index", model : [ contests : Contest.list() ] )
+	}
+
+	def seeProblems(){
+		def submissions = Submission.findAllByUser(loginService.getCurrentUser())
+		def contest = Contest.get(Long.parseLong(params.contestId))
+		
+		def submittedProblems = contest.submission.intersect(submissions)
+		def alreadySolvedProblems = submittedProblems.findAll{ sub -> sub.correct == true }
+		
+		render( 
+			view: "seeProblems", 
+			model : [ 
+				user : loginService.getCurrentUser(), 
+				contest : contest,
+				alreadySolvedProblems: alreadySolvedProblems
+			] )
+	}
+}

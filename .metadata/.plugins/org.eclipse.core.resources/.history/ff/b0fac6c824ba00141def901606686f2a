@@ -1,0 +1,6 @@
+package unal.edu.gpj
+
+class ContestController {
+
+    def index() { }
+}

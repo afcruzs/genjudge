@@ -1,0 +1,7 @@
+package unal.edu.gpj
+
+class CreateLinkToHomeTagLib {
+	def createLinkToHome = { attrs, body ->
+		out << body() << (attrs.happy == 'true' ? " :-)" : " :-(")
+	 }
+}
