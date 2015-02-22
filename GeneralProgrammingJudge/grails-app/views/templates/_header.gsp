@@ -18,18 +18,7 @@
 		<li class="active"><a href="${createLinkToHome()}">Home</a></li>
         
         <li><a href="${createLink(controller:'contest', action:'index')}">Contests</a></li>
-        <li><a href="#contact">Profile</a></li>
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown">Dropdown <b class="caret"></b></a>
-          <ul class="dropdown-menu">
-            <li><a href="#">Profile</a></li>
-            <li><a href="#">Logout</a></li>
-            <li class="divider"></li>
-            <li class="dropdown-header">Nav header</li>
-            <li><a href="#">Separated link</a></li>
-            <li><a href="#">One more separated link</a></li>
-          </ul>
-        </li>
+        <li><a href="${createLink(controller:'auth',action:'signOut') }">Logout</a></li>
       </ul>
       
     </div><!--/.nav-collapse -->

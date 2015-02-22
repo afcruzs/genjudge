@@ -1,8 +1,0 @@
-package unal.edu.gpj
-
-class ContestController {
-
-    def index() { 
-		render( view: "index", model : [ contests : Contest.list() ] )
-	}
-}

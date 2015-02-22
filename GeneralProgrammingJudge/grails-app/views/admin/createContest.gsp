@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin</title>
+        <title>Create Contest</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <!-- Bootstrap -->
             
@@ -11,12 +11,14 @@
 				href="${resource(dir:'css', file:'datepicker.css')}" />
 				
 				<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-	        <script src="https://code.jquery.com/jquery.js"></script>
-	        
-	        
+	        <script src="https://code.jquery.com/jquery.js"></script>        
 	        <!-- Include all compiled plugins (below), or include individual files as needed -->
+	        <script src="${resource(dir:'', file:'js/moment.js')}"></script>
+	        <script src="${resource(dir:'', file:'js/transition.js')}"></script>
+	        <script src="${resource(dir:'', file:'js/collapse.js')}"></script>
 	        <script src="${resource(dir:'', file:'js/bootstrap.min.js')}"></script>
 	        <script src="${resource(dir:'', file:'js/bootstrap-datepicker.js')}"></script>
+	        
 
             <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
             <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -64,18 +66,22 @@
 					
 					<label>Duration Dates</label>
 					<div class='input-group date' id='datetimepicker1'>
-						<input type="text" class="form-control" placeholder="start date" id="dp1" name="dp1"  >
+						<input type="text" class="form-control" placeholder="start date" id="dp1" name="dp1"  data-date-format="DD/MM/YYYY HH:mm"  >
 						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> </span>
 						
-						<input type="text" class="form-control"  placeholder="end date" id="dp2" name="dp2">
+					</div>
+					
+					<div class='input-group date' id='datetimepicker2'>
+						
+						<input type="text" class="form-control"  placeholder="end date" id="dp2" name="dp2" data-date-format="DD/MM/YYYY HH:mm" >
 						<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span> </span>
 						
 					</div>
 					
 					<script>
-						var format = { format: 'dd/mm/yyyy' };
-						$('#dp1').datepicker(format);
-						$('#dp2').datepicker(format);
+						var format = {};
+						$('#dp1').datetimepicker(format);
+						$('#dp2').datetimepicker(format);
 					</script>
 					
 					<br>

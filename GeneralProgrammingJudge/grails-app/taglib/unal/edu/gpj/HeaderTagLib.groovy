@@ -10,4 +10,10 @@ class HeaderTagLib {
 			out << g.createLink(controller:'home',action:'index')
 		
 	 }
+	
+	
+	def getCurrentUserName = { attrs, body ->
+		out << loginService.getCurrentUser().username
+		
+	 }
 }

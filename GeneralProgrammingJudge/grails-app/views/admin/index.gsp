@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Admin</title>
+        <title>GPJ</title>
             <meta name="viewport" content="width=device-width, initial-scale=1.0">
             <!-- Bootstrap -->
             
@@ -14,13 +14,52 @@
               <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
               <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
             <![endif]-->
+            
+             <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	        <script src="https://code.jquery.com/jquery.js"></script>
+	        
+	        <!-- Include all compiled plugins (below), or include individual files as needed -->
+	        <script src="${resource(dir:'', file:'js/bootstrap.min.js')}"></script>
     </head>
     <body>
         
         
         <g:render template="/templates/header" />
         
+        <script>
+			function linkToContest(){
+				$("#goToContest").attr("href", "seeContest?contestId=" + $("#contestSelect  option:selected").val());
+			}
+        </script>
         
+        <div class="modal fade" id="basicModal" tabindex="-1" role="dialog" aria-labelledby="basicModal" aria-hidden="true">
+		    <div class="modal-dialog">
+		        <div class="modal-content">
+		            <div class="modal-header">
+		            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">Close</button>
+		            <h3 class="modal-title" id="myModalLabel">Choose a Contest</h3>
+		            </div>
+		            <div class="modal-body">
+		                <select class="form-control" id="contestSelect" name="contestSelect">
+							<g:each var="contest" in="${contests}" >
+								<option id="${'contest'+contest.id}" value="${contest.id}">${contest.name}</option>
+							</g:each>
+						</select>
+		            </div>
+		            <div class="modal-footer">
+		                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+		                <a id="goToContest"class="btn btn-default" href="#" onclick="linkToContest()">Go</a>
+		                <g:if test="${contests.size() == 0}">
+		                	<script>
+		                		$("#goToContest").attr('disabled','disabled');
+		                	</script>
+		                </g:if>
+		        </div>
+		    </div>
+		  </div>
+		</div>
+        
+        <h1 align="center" >Welcome ${getCurrentUserName()}</h1>
         <div class="container">
         	<h2>Problems</h2>
             <div class="jumbotron">
@@ -35,7 +74,8 @@
             <div class="jumbotron">
               <a class="btn btn-primary btn-lg" href="createContest">Create Contest</a>
               <a class="btn btn-primary btn-lg disabled">Delete Contest</a>
-              <a class="btn btn-primary btn-lg disabled">See Contest</a>              
+              <a class="btn btn-primary btn-lg" href="#" data-toggle="modal" data-target="#basicModal">See Contest</a>   
+              
             </div>
         </div>
         
@@ -46,14 +86,18 @@
             </div>
         </div>
         
-        <script>
-        </script>
+        <div class="container">
+        	<h2>Users</h2>
+            <div class="jumbotron">
+              <a class="btn btn-primary btn-lg" href="createUser">Create User</a>
+              <a class="btn btn-primary btn-lg disabled">Delete User</a>
+              <a class="btn btn-primary btn-lg disabled">Edit User</a>
+            </div>
+        </div>
         
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://code.jquery.com/jquery.js"></script>
+       
         
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="${resource(dir:'', file:'js/bootstrap.min.js')}"></script>
+       
         
     </body>
 </html>

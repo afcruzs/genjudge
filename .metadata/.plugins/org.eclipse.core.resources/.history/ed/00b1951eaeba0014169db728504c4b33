@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Admin</title>
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+            <!-- Bootstrap -->
+            
+            <link rel="stylesheet" type="text/css"
+				href="${resource(dir:'css', file:'bootstrap.min.css')}" />
+
+            <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+            <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+            <!--[if lt IE 9]>
+              <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+              <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+            <![endif]-->
+    </head>
+    <body>
+        
+        
+        <g:render template="/templates/header" />
+        
+        <div align="center">
+			<g:if test="${outtaTime == true}">
+				<h1>You have no longer time to upload the input, please download another input and try again.</h1>
+			</g:if>
+			<g:else>        
+	        	<g:if test="${finished == true}">
+	        		<h1>The contest already finished.</h1>
+	        	</g:if>
+	        	<g:else>
+		        	<g:if test="${good == false}">
+		        		<h1>please send ONLY text files or we'll call FBI :)</h1>
+		        	</g:if>
+		        	<g:else>
+			        	<g:if test="${ac == true}">
+			        		<h1>
+			        			Congratulations!
+			        			<br>
+			        			<font color="green">Accepted :)</font> 
+			        		</h1>
+			        	</g:if>
+			        	<g:else>
+			        		<h1>
+			        			<font color="red">Wrong Answer :/</font>
+			        			  
+			        		</h1>
+			        		<br>
+			        		<h3>
+				       			Your Output file didn't match with the correct output. Remember that you should NOT print
+				       			anything but the answer, if there is something else printed the files will not match and there
+				       			will be Wrong Answer. Also check for extra spaces and/or extra endlines.
+			       			</h3>
+			        	</g:else>
+		        	</g:else>
+		        </g:else>
+		    </g:else>
+        	<a class="btn btn-success btn-lg" href="${createLink(action: 'seeProblems',params:[contestId:cid])}">Back to contest</a>
+        </div>
+        
+        
+        
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+        <script src="https://code.jquery.com/jquery.js"></script>
+        
+        <!-- Include all compiled plugins (below), or include individual files as needed -->
+        <script src="${resource(dir:'', file:'js/bootstrap.min.js')}"></script>
+        
+    </body>
+</html>
