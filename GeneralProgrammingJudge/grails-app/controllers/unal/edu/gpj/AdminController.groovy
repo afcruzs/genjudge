@@ -115,6 +115,28 @@ class AdminController {
 		render Problem.list().size()
 	}
 	
+	def editContest(){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+		def contest = Contest.get(params.contestId)
+		String startDate = formatter.format(contest.startDate)
+		String finishDate = formatter.format(contest.finishDate)
+		render(view:'editContest' ,model : [ contest : contest, startDate : startDate, finishDate : finishDate ] )
+	}
+	
+	def doEditContest(){
+		SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");		
+		Date startDate = formatter.parse(params.dp1)
+		Date endDate = formatter.parse(params.dp2)
+		String name = params.name
+		
+		Contest contest = Contest.get(params.contestId)
+		contest.setStartDate(startDate)
+		contest.setFinishDate(endDate)
+		contest.setName(name)
+		contest.save()
+		redirect(action:'index')
+	}
+	
 	def seeContest(){
 		def contest = Contest.get(params.contestId)
 		def standings = [:]

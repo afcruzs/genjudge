@@ -1,5 +1,6 @@
 import org.apache.shiro.crypto.hash.Sha512Hash
 
+import unal.edu.gpj.Contest
 import unal.edu.gpj.Role
 import unal.edu.gpj.User
 

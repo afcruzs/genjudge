@@ -13,6 +13,8 @@ class LoginService {
     }
 	
 	def isAdmin(){
+		if( getCurrentUser() == null )
+			return false
 		def roles = getCurrentUser().getRoles()
 		for(Role r : roles){
 			if( r.name.equals("Administrator") )
