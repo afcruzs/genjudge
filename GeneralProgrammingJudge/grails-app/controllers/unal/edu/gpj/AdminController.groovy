@@ -6,7 +6,9 @@ import org.apache.shiro.crypto.hash.Sha512Hash
 
 class AdminController {
 
-    def index() { render(view:'index', model : [contests : Contest.list()] ) }
+    def index() { 
+		println Problem.list()
+		render(view:'index', model : [contests : Contest.list(), problems : Problem.list()] ) }
 	
 	def createUser(){
 		render(view:'createUser',model :[ roles : Role.list()*.getName() ])	
@@ -121,6 +123,43 @@ class AdminController {
 		String startDate = formatter.format(contest.startDate)
 		String finishDate = formatter.format(contest.finishDate)
 		render(view:'editContest' ,model : [ contest : contest, startDate : startDate, finishDate : finishDate ] )
+	}
+	
+	def editProblem(){
+		render(view:'editProblem', model :[problem:Problem.get(params.problemId)])
+	}
+	
+	def doEditProblem(){
+		def bytesFile = request.getFile('file').getBytes()
+		def name = params.titleInput
+		def time = Long.parseLong(params.time)
+		def newProblem = Problem.get(params.problemId)
+		newProblem.testCases.clear()
+		newProblem.setPdfDescription(bytesFile)
+		newProblem.setTimeToAnswer(time)
+		newProblem.setName(name)
+		
+		def inputCases = request.getMultiFileMap().input
+		def outputCases = request.getMultiFileMap().output
+		
+		
+		if( inputCases.size() != outputCases.size() ) {
+			render "PLease upload the same amount of input/output files"
+		}else{
+			inputCases = inputCases.sort{a,b -> a.getOriginalFilename().toLowerCase() <=> b.getOriginalFilename().toLowerCase()}
+			outputCases = outputCases.sort{a,b -> a.getOriginalFilename().toLowerCase() <=> b.getOriginalFilename().toLowerCase()}
+			
+			
+			for(int i=0; i<inputCases.size(); i++){
+				TestCase testCase = new TestCase(
+					inputFile:inputCases[i].getBytes(),
+					outputFile:outputCases[i].getBytes()
+					)
+				newProblem.addToTestCases(testCase)
+			}
+			newProblem.save()
+			redirect(action:'index')
+		}
 	}
 	
 	def doEditContest(){
