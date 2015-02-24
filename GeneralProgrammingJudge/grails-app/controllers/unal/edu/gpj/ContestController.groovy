@@ -93,6 +93,19 @@ class ContestController {
 		
 	}
 	
+	def downloadExample(){
+		Problem problem = Problem.get(params.pid)
+		def bytes = problem.example
+		
+		if(bytes == null){
+			render "No example for you :("
+		}else{
+			response.setContentType("application/zip")
+			response.setHeader("Content-disposition", "attachment;filename=\"example.zip\"")
+			response.outputStream << bytes
+		}
+	}
+	
 	def downloadInput(){
 		Problem problem = Problem.get(params.pid)
 		Contest contest = Contest.get(params.cid)

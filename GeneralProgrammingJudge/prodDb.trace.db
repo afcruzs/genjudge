@@ -10,3 +10,75 @@ insert into test_case (id, version, input_file, output_file) values (null, ?, ?,
 org.h2.jdbc.JdbcSQLException: Valor demasiado largo para la columna "INPUT_FILE BINARY(255) NOT NULL": "X'3530300a39310a4144442053616c7661646f72203520656e5f6d6f7261203836313820313730390a44454c45544520300a41444420526f736120313120656e... (1038147)"
 Value too long for column "INPUT_FILE BINARY(255) NOT NULL": "X'3530300a39310a4144442053616c7661646f72203520656e5f6d6f7261203836313820313730390a44454c45544520300a41444420526f736120313120656e... (1038147)"; SQL statement:
 insert into test_case (id, version, input_file, output_file) values (null, ?, ?, ?) [22001-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_PROBLEM" no encontrada
+Table "CONTEST_PROBLEM" not found; SQL statement:
+alter table contest_problem drop constraint FKCC274A74464071E0 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_PROBLEM" no encontrada
+Table "CONTEST_PROBLEM" not found; SQL statement:
+alter table contest_problem drop constraint FKCC274A7470790D4B [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_SUBMISSION" no encontrada
+Table "CONTEST_SUBMISSION" not found; SQL statement:
+alter table contest_submission drop constraint FK251B2757DF1E4008 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_SUBMISSION" no encontrada
+Table "CONTEST_SUBMISSION" not found; SQL statement:
+alter table contest_submission drop constraint FK251B27573E3838A9 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_TEST_CASE_DOWNLOAD" no encontrada
+Table "CONTEST_TEST_CASE_DOWNLOAD" not found; SQL statement:
+alter table contest_test_case_download drop constraint FK79BA74D5BD8EB269 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_TEST_CASE_DOWNLOAD" no encontrada
+Table "CONTEST_TEST_CASE_DOWNLOAD" not found; SQL statement:
+alter table contest_test_case_download drop constraint FK79BA74D59B8DB3F [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_USER" no encontrada
+Table "CONTEST_USER" not found; SQL statement:
+alter table contest_user drop constraint FK3A147C1616F83389 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "CONTEST_USER" no encontrada
+Table "CONTEST_USER" not found; SQL statement:
+alter table contest_user drop constraint FK3A147C16B1180282 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "PROBLEM_TEST_CASE" no encontrada
+Table "PROBLEM_TEST_CASE" not found; SQL statement:
+alter table problem_test_case drop constraint FK98EF3D1D67E27594 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "PROBLEM_TEST_CASE" no encontrada
+Table "PROBLEM_TEST_CASE" not found; SQL statement:
+alter table problem_test_case drop constraint FK98EF3D1D6C4DA6EE [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "ROLE_PERMISSIONS" no encontrada
+Table "ROLE_PERMISSIONS" not found; SQL statement:
+alter table role_permissions drop constraint FKEAD9D23B71CD6FA9 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "SUBMISSION" no encontrada
+Table "SUBMISSION" not found; SQL statement:
+alter table submission drop constraint FK84363B4C70790D4B [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "SUBMISSION" no encontrada
+Table "SUBMISSION" not found; SQL statement:
+alter table submission drop constraint FK84363B4C16F83389 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "TEST_CASE_DOWNLOAD" no encontrada
+Table "TEST_CASE_DOWNLOAD" not found; SQL statement:
+alter table test_case_download drop constraint FK8790C3CA16F83389 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "TEST_CASE_DOWNLOAD" no encontrada
+Table "TEST_CASE_DOWNLOAD" not found; SQL statement:
+alter table test_case_download drop constraint FK8790C3CA6C4DA6EE [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "USER_PERMISSIONS" no encontrada
+Table "USER_PERMISSIONS" not found; SQL statement:
+alter table user_permissions drop constraint FKE693E61016F83389 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "USER_ROLES" no encontrada
+Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop constraint FK7342994971CD6FA9 [42102-164]
+02-24 00:41:14 jdbc[2]: exception
+org.h2.jdbc.JdbcSQLException: Tabla "USER_ROLES" no encontrada
+Table "USER_ROLES" not found; SQL statement:
+alter table user_roles drop constraint FK7342994916F83389 [42102-164]

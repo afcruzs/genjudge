@@ -123,6 +123,11 @@
 								$('#pdf${it.problem.id}').hide();
 			            	</script>
 			            	
+			            	<label>Input/Output Example</label>
+				           	<br>
+			            	<a class="button" href="downloadExample?pid=${it.problem.id}">Download Example</a>
+				            <br><br>
+			            	
 			            	<div id="tleDiv${it.problem.id}">
 					            	<label> 
 					            		<font color="blue">Time Limit exceeded :|</font> 
@@ -185,7 +190,11 @@
 								$('#pdf${problem.id}').hide();
 			            	</script>
 			            	
-			            	
+			            	<label>Input/Output Example</label>
+				           	<br>
+			            	<a class="button" href="downloadExample?pid=${problem.id}">Download Example</a>
+				            <br><br>
+				            	
 			            	<div id="inputDiv${problem.id}">
 			            		<div id="tleDiv${problem.id}">
 					            	<label> 

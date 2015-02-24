@@ -37,6 +37,9 @@
 				    <label> Output Cases </label> 
 				    <input type="file" name="output" multiple>
 				    <br>
+				    <label> Example (Zip) </label> 
+				    <input type="file" name="example" multiple>
+				    <br>
 				    <label>Time (Milliseconds) </label>
 					<input  type="number"  id="time" name="time" class="form-control" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
 					<br>

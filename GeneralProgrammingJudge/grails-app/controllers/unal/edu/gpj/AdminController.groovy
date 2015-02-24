@@ -34,9 +34,10 @@ class AdminController {
 	def doUploadProblem(){
 		
 		def bytesFile = request.getFile('file').getBytes()
+		def example = request.getFile('example').getBytes()
 		def name = params.titleInput
 		def time = Long.parseLong(params.time)
-		def newProblem = new Problem(name:name,pdfDescription:bytesFile,timeToAnswer:time)
+		def newProblem = new Problem(name:name,pdfDescription:bytesFile,timeToAnswer:time,example:example)
 		
 		def inputCases = request.getMultiFileMap().input
 		def outputCases = request.getMultiFileMap().output
