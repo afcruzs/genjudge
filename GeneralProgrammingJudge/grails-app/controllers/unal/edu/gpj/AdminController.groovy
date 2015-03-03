@@ -236,7 +236,7 @@ class AdminController {
 	}
 	
 	def downloadInput(){
-		def testCase = TestCaseDownload.get(params.tcId).testCase
+		def testCase = TestCase.get(params.tcId)
 		def bytes = testCase.inputFile
 		
 		if( bytes == null ){
@@ -250,7 +250,7 @@ class AdminController {
 	}
 	
 	def downloadOutput(){
-		def testCase = TestCaseDownload.get(params.tcId).testCase
+		def testCase = TestCase.get(params.tcId)
 		def bytes = testCase.outputFile
 		
 		if( bytes == null ){
