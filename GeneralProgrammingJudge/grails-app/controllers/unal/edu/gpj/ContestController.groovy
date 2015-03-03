@@ -189,7 +189,8 @@ class ContestController {
 		Submission submission = new Submission(
 			user : loginService.getCurrentUser(),
 			date : new Date(),
-			problem : problem
+			problem : problem,
+			userOutput : bytesFile
 		)
 		if( contest.finishDate.compareTo(new Date()) < 0 ){
 			render( view: "judgeAnswer", model : [ finished : true, cid : params.cid ] )

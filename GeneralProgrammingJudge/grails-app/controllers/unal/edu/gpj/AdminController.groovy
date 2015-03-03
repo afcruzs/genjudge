@@ -230,4 +230,51 @@ class AdminController {
 		render(view:'seeContest',model : [ contestName : contest.name, status: status, standings : standings, users : users, header : header ])
 		
 	}
+	
+	def allDownloads(){
+		render(view:'allDownloads', model : [downloads:TestCaseDownload.list(),submissions:Submission.list()])
+	}
+	
+	def downloadInput(){
+		def testCase = TestCaseDownload.get(params.tcId).testCase
+		def bytes = testCase.inputFile
+		
+		if( bytes == null ){
+			response.setContentType("text/HTML")
+			response.outputStream << "wtf intput is null"
+		}else{
+			response.setContentType("application/text")
+			response.setHeader("Content-disposition", "attachment;filename=\"input.txt\"")
+			response.outputStream << bytes
+		}
+	}
+	
+	def downloadOutput(){
+		def testCase = TestCaseDownload.get(params.tcId).testCase
+		def bytes = testCase.outputFile
+		
+		if( bytes == null ){
+			response.setContentType("text/HTML")
+			response.outputStream << "wtf output is null"
+		}else{
+			response.setContentType("application/text")
+			response.setHeader("Content-disposition", "attachment;filename=\"output.txt\"")
+			response.outputStream << bytes
+		}
+	}
+	
+	
+	def downloadUserOutput(){
+		def submission = Submission.get(params.subId)
+		def bytes = submission.userOutput
+		
+		if( bytes == null ){
+			response.setContentType("text/HTML")
+			response.outputStream << "wtf output is null"
+		}else{
+			response.setContentType("application/text")
+			response.setHeader("Content-disposition", "attachment;filename=\"userOutput.txt\"")
+			response.outputStream << bytes
+		}
+	}
 }

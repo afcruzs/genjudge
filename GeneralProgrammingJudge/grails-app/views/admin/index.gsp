@@ -159,6 +159,7 @@
               <a class="btn btn-primary btn-lg" href="createUser">Create User</a>
               <a class="btn btn-primary btn-lg disabled">Delete User</a>
               <a class="btn btn-primary btn-lg disabled">Edit User</a>
+              <a class="btn btn-primary btn-lg" href="allDownloads">All downloads</a>
             </div>
         </div>
         
